@@ -18,7 +18,7 @@ namespace Business.Elementos
         }
         public abstract void Funcao(IWebDriver pagina);
 
-        protected IWebElement GetElemento(IWebDriver pagina)
+        public virtual IWebElement GetElemento(IWebDriver pagina)
         {
             try
             {

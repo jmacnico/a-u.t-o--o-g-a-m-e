@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elementos\BtnMenu.cs" />
     <Compile Include="Elementos\Button.cs" />
     <Compile Include="Elementos\Combobox.cs" />
     <Compile Include="Elementos\Enums.cs" />
@@ -52,9 +53,21 @@
     <Compile Include="Elementos\Listbox.cs" />
     <Compile Include="Elementos\Textbox.cs" />
     <Compile Include="Menu\Menu.cs" />
+    <Compile Include="Menu\MenuPaginas.cs" />
+    <Compile Include="Paginas\Defesas.cs" />
+    <Compile Include="Paginas\Frota.cs" />
+    <Compile Include="Paginas\FrotaSettings.cs" />
+    <Compile Include="Paginas\Galaxia.cs" />
+    <Compile Include="Paginas\Hangar.cs" />
+    <Compile Include="Paginas\Instalacoes.cs" />
     <Compile Include="Paginas\IPagina.cs" />
     <Compile Include="Paginas\Login.cs" />
     <Compile Include="NegocioGeral.cs" />
+    <Compile Include="Paginas\Pesquisas.cs" />
+    <Compile Include="Paginas\PesquisasSettings.cs" />
+    <Compile Include="Paginas\Recursos.cs" />
+    <Compile Include="Paginas\RecursosSettings.cs" />
+    <Compile Include="Paginas\VistaGeral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

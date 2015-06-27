@@ -22,10 +22,17 @@ namespace TestesUnitarios
             login.Open(NegocioGeral.PaginaElementos);
 
             Menu menu = new Menu();
-            Combobox cb = (Combobox)menu.elementos[0];
-            cb.selectValue = "Recursos";
-             
-            menu.Open(NegocioGeral.PaginaElementos);
+            menu.Recursos.principal.Entrar(NegocioGeral.PaginaElementos);
+            //menu.Recursos.settings.Entrar(NegocioGeral.PaginaElementos);
+            //menu.VistaGeral.principal.Entrar(NegocioGeral.PaginaElementos);
+            //menu.Pesquisas.principal.Entrar(NegocioGeral.PaginaElementos);
+            //menu.Pesquisas.settings.Entrar(NegocioGeral.PaginaElementos);
+            //menu.Hangar.principal.Entrar(NegocioGeral.PaginaElementos);
+            //menu.Defesas.principal.Entrar(NegocioGeral.PaginaElementos);
+            //menu.Frota.principal.Entrar(NegocioGeral.PaginaElementos);
+            //menu.Frota.settings.Entrar(NegocioGeral.PaginaElementos);
+            //menu.Instalacoes.principal.Entrar(NegocioGeral.PaginaElementos);
+            //menu.Galaxia.principal.Entrar(NegocioGeral.PaginaElementos);
         }
     }
 }

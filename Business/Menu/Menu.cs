@@ -10,28 +10,25 @@ namespace Business.Menu
     public class Menu
     {
         public string Nome { get; private set; }
-        public List<IElemento> elementos { get; private set; }
+        public MenuPaginas Recursos { get; private set; }
+        public MenuPaginas VistaGeral { get; private set; }
+        public MenuPaginas Instalacoes { get; private set; }
+        public MenuPaginas Pesquisas { get; private set; }
+        public MenuPaginas Hangar { get; private set; }
+        public MenuPaginas Frota { get; private set; }
+        public MenuPaginas Defesas { get; private set; }
+        public MenuPaginas Galaxia { get; private set; }
 
         public Menu()
         {
-            elementos = new List<IElemento>();
-            elementos.Add(new Listbox("menuTable",ElementoPesquisaEnum._id,"Recursos");
-        }
-
-        public bool Open(IWebDriver pagina)
-        {
-            elementos.FirstOrDefault(x => x.id.Equals("menuTable")).Funcao(pagina);
-            return true;
+            Recursos = new MenuPaginas(new Paginas.Recursos(), new Paginas.RecursosSettings());
+            VistaGeral = new MenuPaginas(new Paginas.VistaGeral(), null);
+            Instalacoes = new MenuPaginas(new Paginas.Instalacoes(),null);
+            Pesquisas = new MenuPaginas(new Paginas.Pesquisas(), new Paginas.PesquisasSettings());
+            Hangar = new MenuPaginas(new Paginas.Hangar(),null);
+            Frota = new MenuPaginas(new Paginas.Frota(), new Paginas.FrotaSettings());
+            Defesas = new MenuPaginas(new Paginas.Defesas(), null);
+            Galaxia = new MenuPaginas(new Paginas.Galaxia(), null);
         }
     }
-    //public class MenuElemento
-    //{
-    //    public IElemento btnEvoluir { get; private set; }
-    //    public IElemento btnAux { get; private set; }
-    //    public MenuElemento(IElemento BtnEvoluir,IElemento BtnAux)
-    //    {
-    //        btnAux = BtnAux;
-    //        btnEvoluir = BtnEvoluir;
-    //    }
-    //}
 }
