@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A3E8164F-24AC-4AA8-9B70-5A1E79C5F294}</ProjectGuid>
+    <ProjectGuid>{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Business</RootNamespace>
-    <AssemblyName>Business</AssemblyName>
+    <RootNamespace>Micael.WebDriver</RootNamespace>
+    <AssemblyName>Micael.WebDriver</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -38,49 +38,16 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WebDriver">
-      <HintPath>..\..\net40\WebDriver.dll</HintPath>
+      <HintPath>..\..\..\Ogame\net40\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver.Support">
-      <HintPath>..\..\net40\WebDriver.Support.dll</HintPath>
+      <HintPath>..\..\..\Ogame\net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elementos\BtnMenu.cs" />
-    <Compile Include="Elementos\BtnRecusros.cs" />
-    <Compile Include="Elementos\Button.cs" />
-    <Compile Include="Elementos\Combobox.cs" />
-    <Compile Include="Elementos\Enums.cs" />
-    <Compile Include="Elementos\IElemento.cs" />
-    <Compile Include="Elementos\Listbox.cs" />
-    <Compile Include="Elementos\Textbox.cs" />
-    <Compile Include="Menu\Menu.cs" />
-    <Compile Include="Menu\MenuPaginas.cs" />
-    <Compile Include="Paginas\Defesas.cs" />
-    <Compile Include="Paginas\Frota.cs" />
-    <Compile Include="Paginas\FrotaSettings.cs" />
-    <Compile Include="Paginas\Galaxia.cs" />
-    <Compile Include="Paginas\Hangar.cs" />
-    <Compile Include="Paginas\Instalacoes.cs" />
-    <Compile Include="Paginas\IPagina.cs" />
-    <Compile Include="Paginas\Login.cs" />
-    <Compile Include="NegocioGeral.cs" />
-    <Compile Include="Paginas\Pesquisas.cs" />
-    <Compile Include="Paginas\PesquisasSettings.cs" />
-    <Compile Include="Paginas\Recursos.cs" />
-    <Compile Include="Paginas\RecursosSettings.cs" />
-    <Compile Include="Paginas\VistaGeral.cs" />
+    <Compile Include="ISearchWebElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{ebe9ea23-c600-47f2-b123-c16850a8f729}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="FilesXML\Menu.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Compile Include="SearchWebElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

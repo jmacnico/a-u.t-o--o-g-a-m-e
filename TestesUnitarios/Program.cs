@@ -7,6 +7,9 @@ using Business;
 using System.Configuration;
 using Business.Menu;
 using Business.Elementos;
+using Business.Paginas;
+using System.Xml;
+using System.IO;
 
 
 namespace TestesUnitarios
@@ -15,14 +18,16 @@ namespace TestesUnitarios
     class Program
     {
         static void Main(string[] args)
-        {            
+        {
             Utilizador utilizador = new Utilizador(ConfigurationSettings.AppSettings["Username"].ToString(), ConfigurationSettings.AppSettings["Password"].ToString(), ConfigurationSettings.AppSettings["Universo"].ToString());
-            Login login = new Login(utilizador);            
+            Login login = new Login(utilizador);
             NegocioGeral.OpenPagina();
             login.Open(NegocioGeral.PaginaElementos);
 
             Menu menu = new Menu();
             menu.Recursos.principal.Entrar(NegocioGeral.PaginaElementos);
+            Recursos recurso = new Recursos();
+            recurso.EvoluirMinaMetal(NegocioGeral.PaginaElementos);
             //menu.Recursos.settings.Entrar(NegocioGeral.PaginaElementos);
             //menu.VistaGeral.principal.Entrar(NegocioGeral.PaginaElementos);
             //menu.Pesquisas.principal.Entrar(NegocioGeral.PaginaElementos);

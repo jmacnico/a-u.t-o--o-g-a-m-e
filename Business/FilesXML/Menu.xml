@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pesquisa>  
+  <Menu>
+    <Elemento id="menuTable"/>
+  </Menu>
+  <Buttons>
+    <Button Name="Recursos">
+      <Elementos tagName="li">
+        <Elemento Text="Recursos"/>
+      </Elementos>
+      <Elementos tagName="a">
+        <Elemneto Text="Recursos"/>
+      </Elementos>
+    </Button>
+  </Buttons>
+</Pesquisa>

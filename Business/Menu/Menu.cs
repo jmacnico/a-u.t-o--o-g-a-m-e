@@ -23,9 +23,9 @@ namespace Business.Menu
         {
             Recursos = new MenuPaginas(new Paginas.Recursos(), new Paginas.RecursosSettings());
             VistaGeral = new MenuPaginas(new Paginas.VistaGeral(), null);
-            Instalacoes = new MenuPaginas(new Paginas.Instalacoes(),null);
+            Instalacoes = new MenuPaginas(new Paginas.Instalacoes(), null);
             Pesquisas = new MenuPaginas(new Paginas.Pesquisas(), new Paginas.PesquisasSettings());
-            Hangar = new MenuPaginas(new Paginas.Hangar(),null);
+            Hangar = new MenuPaginas(new Paginas.Hangar(), null);
             Frota = new MenuPaginas(new Paginas.Frota(), new Paginas.FrotaSettings());
             Defesas = new MenuPaginas(new Paginas.Defesas(), null);
             Galaxia = new MenuPaginas(new Paginas.Galaxia(), null);

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TratamentoExcecao", "TratamentoExcecao\TratamentoExcecao.csproj", "{BCB3D292-02BC-4827-A1B1-5839AC1D002A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micael.WebDriver", "Micael.WebDriver\Micael.WebDriver.csproj", "{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,16 @@ Global
 		{BCB3D292-02BC-4827-A1B1-5839AC1D002A}.Release|ARM.ActiveCfg = Release|Any CPU
 		{BCB3D292-02BC-4827-A1B1-5839AC1D002A}.Release|x64.ActiveCfg = Release|Any CPU
 		{BCB3D292-02BC-4827-A1B1-5839AC1D002A}.Release|x86.ActiveCfg = Release|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|ARM.ActiveCfg = Release|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|x64.ActiveCfg = Release|Any CPU
+		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

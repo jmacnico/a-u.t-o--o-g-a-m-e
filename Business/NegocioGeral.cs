@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium;
+using System.Xml;
+using System.IO;
 
 namespace Business
 {

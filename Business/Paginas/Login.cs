@@ -10,14 +10,13 @@ namespace Business
 {
     public class Login
     {
-        public Utilizador utilizador { get; private set; }
-        public Textbox txtPassword { get; private set; }
-        public Textbox txtUsername { get; private set; }
-        public Button btnEntrar { get; private set; }
-        public Button btnSubmit { get; private set; }
-        public Combobox cmbUniverso { get; private set; }
-
-        public Button PasswordLogin { get; private set; }
+        Utilizador utilizador;
+        Textbox txtPassword;
+        Textbox txtUsername;
+        Button btnEntrar;
+        Button btnSubmit;
+        Combobox cmbUniverso;
+        Button PasswordLogin;
         public Login(Utilizador Utilizador)
         {
             utilizador = Utilizador;

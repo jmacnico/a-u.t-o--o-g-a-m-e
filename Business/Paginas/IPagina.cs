@@ -8,7 +8,7 @@ namespace Business
     public abstract class IPagina
     {
 
-        private Elementos.BtnMenu btnIdentificador;
+        Elementos.BtnMenu btnIdentificador;
 
         public IPagina(Elementos.BtnMenu Identificador)
         {
