@@ -16,9 +16,10 @@ namespace Business
         }
         public abstract bool ValidateLogin(IWebDriver pagina);
 
-        public void Entrar(IWebDriver pagina)
+        public virtual bool Entrar(IWebDriver pagina)
         {
             btnIdentificador.Funcao(pagina);
+            return true;
         }
     }
 }

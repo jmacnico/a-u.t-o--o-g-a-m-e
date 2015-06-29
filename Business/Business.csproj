@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elementos\BtnMenu.cs" />
+    <Compile Include="Elementos\btnPlanetas.cs" />
     <Compile Include="Elementos\BtnRecusros.cs" />
     <Compile Include="Elementos\Button.cs" />
     <Compile Include="Elementos\Combobox.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Paginas\Frota.cs" />
     <Compile Include="Paginas\FrotaSettings.cs" />
     <Compile Include="Paginas\Galaxia.cs" />
+    <Compile Include="Paginas\Global.cs" />
     <Compile Include="Paginas\Hangar.cs" />
     <Compile Include="Paginas\Instalacoes.cs" />
     <Compile Include="Paginas\IPagina.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="NegocioGeral.cs" />
     <Compile Include="Paginas\Pesquisas.cs" />
     <Compile Include="Paginas\PesquisasSettings.cs" />
+    <Compile Include="Paginas\Planetas.cs" />
     <Compile Include="Paginas\Recursos.cs" />
     <Compile Include="Paginas\RecursosSettings.cs" />
     <Compile Include="Paginas\VistaGeral.cs" />

@@ -21,13 +21,13 @@ namespace TestesUnitarios
         {
             Utilizador utilizador = new Utilizador(ConfigurationSettings.AppSettings["Username"].ToString(), ConfigurationSettings.AppSettings["Password"].ToString(), ConfigurationSettings.AppSettings["Universo"].ToString());
             Login login = new Login(utilizador);
-            NegocioGeral.OpenPagina();
-            login.Open(NegocioGeral.PaginaElementos);
-
-            Menu menu = new Menu();
-            menu.Recursos.principal.Entrar(NegocioGeral.PaginaElementos);
-            Recursos recurso = new Recursos();
-            recurso.EvoluirMinaMetal(NegocioGeral.PaginaElementos);
+            login.OpenPagina();
+            login.Entrar(login.paginaElementos);
+            login.global.listPlanetas[0].Selecionar(login.paginaElementos);
+            //Menu menu = new Menu();
+            //menu.Recursos.principal.Entrar(NegocioGeral.PaginaElementos);
+            //Recursos recurso = new Recursos();
+            //recurso.EvoluirMinaMetal(NegocioGeral.PaginaElementos);
             //menu.Recursos.settings.Entrar(NegocioGeral.PaginaElementos);
             //menu.VistaGeral.principal.Entrar(NegocioGeral.PaginaElementos);
             //menu.Pesquisas.principal.Entrar(NegocioGeral.PaginaElementos);
