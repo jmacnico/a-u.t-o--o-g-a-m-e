@@ -7,7 +7,7 @@ namespace TratamentoExcecao
 {
     public static class ExtensionsExption
     {
-        public void TrataException(this Exception ex, string classUtilizada, string Metodo)
+        public static void TrataException(this Exception ex, string classUtilizada, string Metodo)
         {
 
         }

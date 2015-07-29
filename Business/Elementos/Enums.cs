@@ -5,11 +5,13 @@ using System.Text;
 
 namespace Business.Elementos
 {
+    [Flags]
     public enum ElementoPesquisaEnum
     {
         _id,
         _class,
-        _Tag
+        _tag,
+        _path
 
     }
 }

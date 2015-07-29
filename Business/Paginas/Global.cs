@@ -9,9 +9,16 @@ namespace Business.Paginas
     {
         public int pontos { get; private set; }
         public List<Planetas> listPlanetas { get; private set; }
-        public Global(List<Planetas> ListPlanetas)
+
+        public Menu.Menu menu { get; private set; }
+       public Global(List<Planetas> ListPlanetas)
         {
             listPlanetas = ListPlanetas;
+            menu = new Menu.Menu();
+            
         }
+
+
+        
     }
 }

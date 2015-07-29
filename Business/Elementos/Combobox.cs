@@ -9,17 +9,19 @@ namespace Business.Elementos
     public class Combobox : IElemento
     {
         public string selectValue { get; private set; }
+        string tipoLista;
 
-        public Combobox(string Id, ElementoPesquisaEnum elemTipoPesquisa, string SelectValue)
-            : base(Id,elemTipoPesquisa)
+        public Combobox(Identificador Id, string SelectValue,string TipoLista = "option")
+            : base(Id)
         {
             selectValue = SelectValue;
+            tipoLista = TipoLista;
         }  
         public override void Funcao(IWebDriver pagina)
         {
 
             IWebElement elemento = GetElemento(pagina);
-            IList<IWebElement> AllDropDownList = elemento.FindElements(By.TagName("option"));
+            IList<IWebElement> AllDropDownList = elemento.FindElements(By.TagName(tipoLista));
             foreach (var item in AllDropDownList)
             {
                 if (item.Text.ToUpper() == selectValue.ToUpper())

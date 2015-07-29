@@ -1,0 +1,1712 @@
+[1mdiff --git a/AutomatizacaoOgame.sln b/AutomatizacaoOgame.sln[m
+[1mindex 46cc7f9..58d181c 100644[m
+[1m--- a/AutomatizacaoOgame.sln[m
+[1m+++ b/AutomatizacaoOgame.sln[m
+[36m@@ -11,8 +11,6 @@[m [mProject("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{E[m
+ EndProject[m
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TratamentoExcecao", "TratamentoExcecao\TratamentoExcecao.csproj", "{BCB3D292-02BC-4827-A1B1-5839AC1D002A}"[m
+ EndProject[m
+[31m-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micael.WebDriver", "Micael.WebDriver\Micael.WebDriver.csproj", "{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}"[m
+[31m-EndProject[m
+ Global[m
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution[m
+ 		Debug|Any CPU = Debug|Any CPU[m
+[36m@@ -65,16 +63,6 @@[m [mGlobal[m
+ 		{BCB3D292-02BC-4827-A1B1-5839AC1D002A}.Release|ARM.ActiveCfg = Release|Any CPU[m
+ 		{BCB3D292-02BC-4827-A1B1-5839AC1D002A}.Release|x64.ActiveCfg = Release|Any CPU[m
+ 		{BCB3D292-02BC-4827-A1B1-5839AC1D002A}.Release|x86.ActiveCfg = Release|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|Any CPU.Build.0 = Debug|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|ARM.ActiveCfg = Debug|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|x64.ActiveCfg = Debug|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Debug|x86.ActiveCfg = Debug|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|Any CPU.ActiveCfg = Release|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|Any CPU.Build.0 = Release|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|ARM.ActiveCfg = Release|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|x64.ActiveCfg = Release|Any CPU[m
+[31m-		{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}.Release|x86.ActiveCfg = Release|Any CPU[m
+ 	EndGlobalSection[m
+ 	GlobalSection(SolutionProperties) = preSolution[m
+ 		HideSolutionNode = FALSE[m
+[1mdiff --git a/Business/Business.csproj b/Business/Business.csproj[m
+[1mindex ba44585..751cc53 100644[m
+[1m--- a/Business/Business.csproj[m
+[1m+++ b/Business/Business.csproj[m
+[36m@@ -31,6 +31,7 @@[m
+   </PropertyGroup>[m
+   <ItemGroup>[m
+     <Reference Include="System" />[m
+[32m+[m[32m    <Reference Include="System.configuration" />[m
+     <Reference Include="System.Core" />[m
+     <Reference Include="System.Xml.Linq" />[m
+     <Reference Include="System.Data.DataSetExtensions" />[m
+[36m@@ -45,12 +46,14 @@[m
+     </Reference>[m
+   </ItemGroup>[m
+   <ItemGroup>[m
+[31m-    <Compile Include="Elementos\BtnMenu.cs" />[m
+[31m-    <Compile Include="Elementos\btnPlanetas.cs" />[m
+[31m-    <Compile Include="Elementos\BtnRecusros.cs" />[m
+[32m+[m[32m    <Compile Include="Configs\ButtonElement.cs" />[m
+[32m+[m[32m    <Compile Include="Configs\ButtonElementCollection.cs" />[m
+[32m+[m[32m    <Compile Include="Configs\CustomConfig.cs" />[m
+[32m+[m[32m    <Compile Include="Elementos\BtnsEvolucao.cs" />[m
+     <Compile Include="Elementos\Button.cs" />[m
+     <Compile Include="Elementos\Combobox.cs" />[m
+     <Compile Include="Elementos\Enums.cs" />[m
+[32m+[m[32m    <Compile Include="Elementos\Identificador.cs" />[m
+     <Compile Include="Elementos\IElemento.cs" />[m
+     <Compile Include="Elementos\Listbox.cs" />[m
+     <Compile Include="Elementos\Textbox.cs" />[m
+[36m@@ -67,7 +70,7 @@[m
+     <Compile Include="Paginas\Login.cs" />[m
+     <Compile Include="NegocioGeral.cs" />[m
+     <Compile Include="Paginas\Pesquisas.cs" />[m
+[31m-    <Compile Include="Paginas\PesquisasSettings.cs" />[m
+[32m+[m[32m    <Compile Include="Paginas\PesquisaSettings.cs" />[m
+     <Compile Include="Paginas\Planetas.cs" />[m
+     <Compile Include="Paginas\Recursos.cs" />[m
+     <Compile Include="Paginas\RecursosSettings.cs" />[m
+[1mdiff --git a/Business/Elementos/BtnMenu.cs b/Business/Elementos/BtnMenu.cs[m
+[1mdeleted file mode 100644[m
+[1mindex 00e6975..0000000[m
+[1m--- a/Business/Elementos/BtnMenu.cs[m
+[1m+++ /dev/null[m
+[36m@@ -1,68 +0,0 @@[m
+[31m-﻿using OpenQA.Selenium;[m
+[31m-using System;[m
+[31m-using System.Collections.Generic;[m
+[31m-using System.IO;[m
+[31m-using System.Linq;[m
+[31m-using System.Text;[m
+[31m-using System.Xml;[m
+[31m-[m
+[31m-namespace Business.Elementos[m
+[31m-{[m
+[31m-    public class BtnMenu : Button[m
+[31m-    {[m
+[31m-        public string textName;[m
+[31m-[m
+[31m-        public BtnMenu(string id, ElementoPesquisaEnum pesquisa,string TextName) : base (id,pesquisa)[m
+[31m-        {[m
+[31m-            textName = TextName;       [m
+[31m-        }[m
+[31m-        public override IWebElement GetElemento(IWebDriver pagina)[m
+[31m-        {[m
+[31m-            try[m
+[31m-            {[m
+[31m-                //XmlDataDocument xmldoc = new XmlDataDocument();[m
+[31m-                //XmlNodeList xmlnode;[m
+[31m-                //FileStream fs = new FileStream(@"FilesXML\Menu.xml", FileMode.Open, FileAccess.Read);[m
+[31m-                //xmldoc.Load(fs);[m
+[31m-                //xmlnode = xmldoc.GetElementsByTagName("Menu");[m
+[31m-                //var x = xmlnode[0].ChildNodes[0].Attributes[0].Value;[m
+[31m-                //var a = pagina.FindElement(By.Id(xmlnode[0].ChildNodes[0].Attributes[0].Value));[m
+[31m-                //XmlNodeList node = xmldoc.GetElementsByTagName("Buttons");[m
+[31m-                //XmlNode node2 = null;[m
+[31m-                //foreach(XmlNode node1 in node)[m
+[31m-                //{[m
+[31m-                //    if(node1.Attributes["Name"].Value == "Recursos")[m
+[31m-                //    {[m
+[31m-                //        node2 = node1;[m
+[31m-                //        break;[m
+[31m-                //    }[m
+[31m-                //}[m
+[31m-                //foreach(XmlNode node1 in node2.ChildNodes)[m
+[31m-                //{[m
+[31m-[m
+[31m-                //}[m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-                switch (tipoPesquisa)[m
+[31m-                {[m
+[31m-                    case ElementoPesquisaEnum._id:[m
+[31m-                        IWebElement menu = pagina.FindElement(By.Id("menuTable"));[m
+[31m-                        var lstli = menu.FindElements(By.TagName("li"));[m
+[31m-                        var li = lstli.FirstOrDefault(x => x.Text == id);[m
+[31m-                        return li.FindElements(By.TagName("a")).FirstOrDefault(x => x.Text == textName);[m
+[31m-[m
+[31m-                }[m
+[31m-                return null;[m
+[31m-            }[m
+[31m-            catch (Exception ex)[m
+[31m-            {[m
+[31m-                throw new Exception(ex.Message);[m
+[31m-            }[m
+[31m-        }[m
+[31m-        private IWebElement GetElementoById(IWebElement elemento, string id)[m
+[31m-        {[m
+[31m-            return null;[m
+[31m-        }[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/Business/Elementos/BtnRecusros.cs b/Business/Elementos/BtnRecusros.cs[m
+[1mdeleted file mode 100644[m
+[1mindex 7d8b5d6..0000000[m
+[1m--- a/Business/Elementos/BtnRecusros.cs[m
+[1m+++ /dev/null[m
+[36m@@ -1,52 +0,0 @@[m
+[31m-﻿using OpenQA.Selenium;[m
+[31m-using System;[m
+[31m-using System.Collections.Generic;[m
+[31m-using System.Linq;[m
+[31m-using System.Text;[m
+[31m-[m
+[31m-namespace Business.Elementos[m
+[31m-{[m
+[31m-    class BtnRecusros : Button[m
+[31m-    {[m
+[31m-        string listName;[m
+[31m-        string textName;[m
+[31m-[m
+[31m-        public BtnRecusros(string id, ElementoPesquisaEnum pesquisa, string TextName, string ListName)[m
+[31m-            : base(id, pesquisa)[m
+[31m-        {[m
+[31m-            textName = TextName;[m
+[31m-            listName = ListName;[m
+[31m-        }[m
+[31m-[m
+[31m-        public override IWebElement GetElemento(IWebDriver pagina)[m
+[31m-        {[m
+[31m-            try[m
+[31m-            {[m
+[31m-                switch (tipoPesquisa)[m
+[31m-                {[m
+[31m-                    case ElementoPesquisaEnum._id:[m
+[31m-                        IWebElement Buttons = pagina.FindElement(By.Id("buttonz"));[m
+[31m-                        IWebElement Content = Buttons.FindElement(By.ClassName("content"));[m
+[31m-                        IWebElement ul = pagina.FindElement(By.Id(listName));[m
+[31m-                        IWebElement li = ul.FindElement(By.Id(id));[m
+[31m-                        var a = li.FindElements(By.TagName("a"));[m
+[31m-[m
+[31m-                        if (a.Count == 1 && string.IsNullOrEmpty(textName))[m
+[31m-                            return null;[m
+[31m-                        foreach (IWebElement item in a)[m
+[31m-                        {[m
+[31m-                            if (item.GetAttribute("id") == textName)[m
+[31m-                                return item;[m
+[31m-                        }[m
+[31m-                        return null;[m
+[31m-                }[m
+[31m-                return null;[m
+[31m-                [m
+[31m-            }[m
+[31m-            catch (Exception ex)[m
+[31m-            {[m
+[31m-                throw new Exception(ex.Message);[m
+[31m-            }[m
+[31m-        }[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/Business/Elementos/Button.cs b/Business/Elementos/Button.cs[m
+[1mindex dd0a082..47623fb 100644[m
+[1m--- a/Business/Elementos/Button.cs[m
+[1m+++ b/Business/Elementos/Button.cs[m
+[36m@@ -11,8 +11,8 @@[m [mnamespace Business.Elementos[m
+     public class Button : IElemento[m
+     {[m
+ [m
+[31m-        public Button(string Id, ElementoPesquisaEnum elemTipoPesquisa)[m
+[31m-            : base(Id,elemTipoPesquisa)[m
+[32m+[m[32m        public Button(Identificador Id)[m
+[32m+[m[32m            : base(Id)[m
+         {[m
+         }  [m
+         public override void Funcao(IWebDriver pagina)[m
+[1mdiff --git a/Business/Elementos/Combobox.cs b/Business/Elementos/Combobox.cs[m
+[1mindex ac6d9a0..fe5b6c2 100644[m
+[1m--- a/Business/Elementos/Combobox.cs[m
+[1m+++ b/Business/Elementos/Combobox.cs[m
+[36m@@ -9,17 +9,19 @@[m [mnamespace Business.Elementos[m
+     public class Combobox : IElemento[m
+     {[m
+         public string selectValue { get; private set; }[m
+[32m+[m[32m        string tipoLista;[m
+ [m
+[31m-        public Combobox(string Id, ElementoPesquisaEnum elemTipoPesquisa, string SelectValue)[m
+[31m-            : base(Id,elemTipoPesquisa)[m
+[32m+[m[32m        public Combobox(Identificador Id, string SelectValue,string TipoLista = "option")[m
+[32m+[m[32m            : base(Id)[m
+         {[m
+             selectValue = SelectValue;[m
+[32m+[m[32m            tipoLista = TipoLista;[m
+         }  [m
+         public override void Funcao(IWebDriver pagina)[m
+         {[m
+ [m
+             IWebElement elemento = GetElemento(pagina);[m
+[31m-            IList<IWebElement> AllDropDownList = elemento.FindElements(By.TagName("option"));[m
+[32m+[m[32m            IList<IWebElement> AllDropDownList = elemento.FindElements(By.TagName(tipoLista));[m
+             foreach (var item in AllDropDownList)[m
+             {[m
+                 if (item.Text.ToUpper() == selectValue.ToUpper())[m
+[1mdiff --git a/Business/Elementos/Enums.cs b/Business/Elementos/Enums.cs[m
+[1mindex 0360136..6756617 100644[m
+[1m--- a/Business/Elementos/Enums.cs[m
+[1m+++ b/Business/Elementos/Enums.cs[m
+[36m@@ -5,11 +5,13 @@[m [musing System.Text;[m
+ [m
+ namespace Business.Elementos[m
+ {[m
+[32m+[m[32m    [Flags][m
+     public enum ElementoPesquisaEnum[m
+     {[m
+         _id,[m
+         _class,[m
+[31m-        _Tag[m
+[32m+[m[32m        _tag,[m
+[32m+[m[32m        _path[m
+ [m
+     }[m
+ }[m
+[1mdiff --git a/Business/Elementos/IElemento.cs b/Business/Elementos/IElemento.cs[m
+[1mindex e9d1b50..4aef24a 100644[m
+[1m--- a/Business/Elementos/IElemento.cs[m
+[1m+++ b/Business/Elementos/IElemento.cs[m
+[36m@@ -8,24 +8,24 @@[m [mnamespace Business.Elementos[m
+ {[m
+     public abstract class IElemento[m
+     {[m
+[31m-        public ElementoPesquisaEnum tipoPesquisa { get; private set; }[m
+[31m-        public string id { get; private set; }[m
+[32m+[m[32m        Identificador identificador;[m
+ [m
+[31m-        public IElemento(string Id,ElementoPesquisaEnum TipoPesquisa)[m
+[32m+[m[32m        public IElemento(Identificador Id)[m
+         {[m
+[31m-            tipoPesquisa = TipoPesquisa;[m
+[31m-            id = Id;[m
+[32m+[m[32m            identificador = Id;[m
+         }[m
+         public abstract void Funcao(IWebDriver pagina);[m
+ [m
+[31m-        public virtual IWebElement GetElemento(IWebDriver pagina)[m
+[32m+[m[32m        public IWebElement GetElemento(IWebDriver pagina)[m
+         {[m
+             try[m
+             {[m
+[31m-                switch (tipoPesquisa)[m
+[32m+[m[32m                switch (identificador.tipoPesquisa)[m
+                 {[m
+                     case ElementoPesquisaEnum._id:[m
+[31m-                        return pagina.FindElement(By.Id(id));[m
+[32m+[m[32m                        return pagina.FindElement(By.Id(identificador.id));[m
+[32m+[m[32m                    case ElementoPesquisaEnum._path:[m
+[32m+[m[32m                        return pagina.FindElement(By.XPath(identificador.id));[m
+                 }[m
+                 return null;[m
+             }[m
+[1mdiff --git a/Business/Elementos/Listbox.cs b/Business/Elementos/Listbox.cs[m
+[1mindex 2815d91..ea4321f 100644[m
+[1m--- a/Business/Elementos/Listbox.cs[m
+[1m+++ b/Business/Elementos/Listbox.cs[m
+[36m@@ -9,8 +9,8 @@[m [mnamespace Business.Elementos[m
+     public class Listbox : IElemento[m
+     {[m
+         public string selectValue { get; private set; }[m
+[31m-        public Listbox(string Id, ElementoPesquisaEnum elemTipoPesquisa, string SelectValue)[m
+[31m-            : base(Id,elemTipoPesquisa)[m
+[32m+[m[32m        public Listbox(Identificador Id, string SelectValue)[m
+[32m+[m[32m            : base(Id)[m
+         {[m
+             selectValue = SelectValue;[m
+         }  [m
+[1mdiff --git a/Business/Elementos/Textbox.cs b/Business/Elementos/Textbox.cs[m
+[1mindex 0cd1eec..c0f97b5 100644[m
+[1m--- a/Business/Elementos/Textbox.cs[m
+[1m+++ b/Business/Elementos/Textbox.cs[m
+[36m@@ -13,8 +13,8 @@[m [mnamespace Business.Elementos[m
+         [m
+         public string text { get; set; }[m
+ [m
+[31m-        public Textbox(string Id, ElementoPesquisaEnum elemTipoPesquisa, string Text = "")[m
+[31m-            : base(Id,elemTipoPesquisa)[m
+[32m+[m[32m        public Textbox(Identificador Id, string Text = "")[m
+[32m+[m[32m            : base(Id)[m
+         {[m
+             text = Text;[m
+         }    [m
+[1mdiff --git a/Business/Elementos/btnPlanetas.cs b/Business/Elementos/btnPlanetas.cs[m
+[1mdeleted file mode 100644[m
+[1mindex 2ed1c33..0000000[m
+[1m--- a/Business/Elementos/btnPlanetas.cs[m
+[1m+++ /dev/null[m
+[36m@@ -1,23 +0,0 @@[m
+[31m-﻿using OpenQA.Selenium;[m
+[31m-using System;[m
+[31m-using System.Collections.Generic;[m
+[31m-using System.Linq;[m
+[31m-using System.Text;[m
+[31m-[m
+[31m-namespace Business.Elementos[m
+[31m-{[m
+[31m-    public class btnPlanetas : Button[m
+[31m-    {[m
+[31m-        public btnPlanetas(string IdDiv, ElementoPesquisaEnum ele) : base (IdDiv,ele)[m
+[31m-        {[m
+[31m-[m
+[31m-        }[m
+[31m-        public override OpenQA.Selenium.IWebElement GetElemento(OpenQA.Selenium.IWebDriver pagina)[m
+[31m-        {[m
+[31m-            var containerPlanetas = pagina.FindElement(By.Id("planetList"));[m
+[31m-            var planeta = containerPlanetas.FindElement(By.Id(id));[m
+[31m-            var links = planeta.FindElements(By.TagName("a"));[m
+[31m-            return links.FirstOrDefault(x => x.GetAttribute("class").Contains("planetlink"));[m
+[31m-        }[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/Business/Menu/Menu.cs b/Business/Menu/Menu.cs[m
+[1mindex 003cd30..4017427 100644[m
+[1m--- a/Business/Menu/Menu.cs[m
+[1m+++ b/Business/Menu/Menu.cs[m
+[36m@@ -1,4 +1,5 @@[m
+ ﻿using Business.Elementos;[m
+[32m+[m[32musing Business.Paginas;[m
+ using OpenQA.Selenium;[m
+ using System;[m
+ using System.Collections.Generic;[m
+[36m@@ -9,26 +10,68 @@[m [mnamespace Business.Menu[m
+ {[m
+     public class Menu[m
+     {[m
+[31m-        public string Nome { get; private set; }[m
+[31m-        public MenuPaginas Recursos { get; private set; }[m
+[31m-        public MenuPaginas VistaGeral { get; private set; }[m
+[31m-        public MenuPaginas Instalacoes { get; private set; }[m
+[31m-        public MenuPaginas Pesquisas { get; private set; }[m
+[31m-        public MenuPaginas Hangar { get; private set; }[m
+[31m-        public MenuPaginas Frota { get; private set; }[m
+[31m-        public MenuPaginas Defesas { get; private set; }[m
+[31m-        public MenuPaginas Galaxia { get; private set; }[m
+[32m+[m[32m        public MenuPaginas recursos { get; private set; }[m
+[32m+[m[32m        public MenuPaginas vistaGeral { get; private set; }[m
+[32m+[m[32m        public MenuPaginas instalacoes { get; private set; }[m
+[32m+[m[32m        public MenuPaginas pesquisas{ get; private set; }[m
+[32m+[m[32m        public MenuPaginas hangar { get; private set; }[m
+[32m+[m[32m        public MenuPaginas frota { get; private set; }[m
+[32m+[m[32m        public MenuPaginas defesas { get; private set; }[m
+[32m+[m[32m        public MenuPaginas galaxia { get; private set; }[m
+ [m
+         public Menu()[m
+         {[m
+[31m-            Recursos = new MenuPaginas(new Paginas.Recursos(), new Paginas.RecursosSettings());[m
+[31m-            VistaGeral = new MenuPaginas(new Paginas.VistaGeral(), null);[m
+[31m-            Instalacoes = new MenuPaginas(new Paginas.Instalacoes(), null);[m
+[31m-            Pesquisas = new MenuPaginas(new Paginas.Pesquisas(), new Paginas.PesquisasSettings());[m
+[31m-            Hangar = new MenuPaginas(new Paginas.Hangar(), null);[m
+[31m-            Frota = new MenuPaginas(new Paginas.Frota(), new Paginas.FrotaSettings());[m
+[31m-            Defesas = new MenuPaginas(new Paginas.Defesas(), null);[m
+[31m-            Galaxia = new MenuPaginas(new Paginas.Galaxia(), null);[m
+[32m+[m[32m            recursos = new MenuPaginas(new Recursos(), new RecursosSettings());[m
+[32m+[m[32m            vistaGeral = new MenuPaginas(new VistaGeral(), null);[m
+[32m+[m[32m            instalacoes = new MenuPaginas(new Instalacoes(), null);[m
+[32m+[m[32m            pesquisas = new MenuPaginas(new Pesquisas(), new PesquisaSettings());[m
+[32m+[m[32m            hangar = new MenuPaginas(new Hangar(), null);[m
+[32m+[m[32m            frota = new MenuPaginas(new Frota(), new FrotaSettings());[m
+[32m+[m[32m            defesas = new MenuPaginas(new Defesas(), null);[m
+[32m+[m[32m            galaxia = new MenuPaginas(new Galaxia(), null);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        public void EntrarRecursos(IWebDriver pagina, bool OpenSettings = false)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            if (OpenSettings)[m
+[32m+[m[32m                recursos.settings.Entrar(pagina);[m
+[32m+[m[32m            else[m
+[32m+[m[32m                recursos.principal.Entrar(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EntrarVistaGeral(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            vistaGeral.principal.Entrar(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EntrarInstalacoes(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            instalacoes.principal.Entrar(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EntrarPesquisas(IWebDriver pagina, bool OpenSettings = false)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            if (OpenSettings)[m
+[32m+[m[32m                pesquisas.settings.Entrar(pagina);[m
+[32m+[m[32m            else[m
+[32m+[m[32m                pesquisas.principal.Entrar(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EntrarHangar(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            hangar.principal.Entrar(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EntrarDefesas(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            defesas.principal.Entrar(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EntrarGalaxia(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            galaxia.principal.Entrar(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EntrarFrota(IWebDriver pagina, bool OpenSettings = false)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            if (OpenSettings)[m
+[32m+[m[32m                frota.settings.Entrar(pagina);[m
+[32m+[m[32m            else[m
+[32m+[m[32m                frota.principal.Entrar(pagina);[m
+         }[m
+     }[m
+ }[m
+[1mdiff --git a/Business/Paginas/Defesas.cs b/Business/Paginas/Defesas.cs[m
+[1mindex b7020cf..0e8bfc0 100644[m
+[1m--- a/Business/Paginas/Defesas.cs[m
+[1m+++ b/Business/Paginas/Defesas.cs[m
+[36m@@ -1,4 +1,5 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Business.Elementos;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[36m@@ -8,7 +9,7 @@[m [mnamespace Business.Paginas[m
+     class Defesas: IPagina[m
+     {[m
+         public Defesas()[m
+[31m-            : base(new Elementos.BtnMenu("Defesas", Elementos.ElementoPesquisaEnum._id, "Defesas"))[m
+[32m+[m[32m            : base("MenuDefesas")[m
+         {[m
+ [m
+         }[m
+[1mdiff --git a/Business/Paginas/Frota.cs b/Business/Paginas/Frota.cs[m
+[1mindex 047db9f..7ee5f12 100644[m
+[1m--- a/Business/Paginas/Frota.cs[m
+[1m+++ b/Business/Paginas/Frota.cs[m
+[36m@@ -1,4 +1,5 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Business.Elementos;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[36m@@ -8,7 +9,7 @@[m [mnamespace Business.Paginas[m
+     class Frota: IPagina[m
+     {[m
+         public Frota()[m
+[31m-            : base(new Elementos.BtnMenu("Frota", Elementos.ElementoPesquisaEnum._id, "Frota"))[m
+[32m+[m[32m            : base("MenuFrota")[m
+         {[m
+ [m
+         }[m
+[1mdiff --git a/Business/Paginas/FrotaSettings.cs b/Business/Paginas/FrotaSettings.cs[m
+[1mindex 2a42b89..faeb1fa 100644[m
+[1m--- a/Business/Paginas/FrotaSettings.cs[m
+[1m+++ b/Business/Paginas/FrotaSettings.cs[m
+[36m@@ -1,4 +1,5 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Business.Elementos;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[36m@@ -8,7 +9,7 @@[m [mnamespace Business.Paginas[m
+     class FrotaSettings: IPagina[m
+     {[m
+         public FrotaSettings()[m
+[31m-            : base(new Elementos.BtnMenu("Frota", Elementos.ElementoPesquisaEnum._id, ""))[m
+[32m+[m[32m            : base("MenuFrotaSettings")[m
+         {[m
+ [m
+         }[m
+[1mdiff --git a/Business/Paginas/Galaxia.cs b/Business/Paginas/Galaxia.cs[m
+[1mindex 27acc56..aac7ad9 100644[m
+[1m--- a/Business/Paginas/Galaxia.cs[m
+[1m+++ b/Business/Paginas/Galaxia.cs[m
+[36m@@ -1,4 +1,5 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Business.Elementos;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[36m@@ -8,7 +9,7 @@[m [mnamespace Business.Paginas[m
+     class Galaxia: IPagina[m
+     {[m
+         public Galaxia()[m
+[31m-            : base(new Elementos.BtnMenu("Galáxia", Elementos.ElementoPesquisaEnum._id, "Galáxia"))[m
+[32m+[m[32m            : base("MenuGalaxia")[m
+         {[m
+ [m
+         }[m
+[1mdiff --git a/Business/Paginas/Global.cs b/Business/Paginas/Global.cs[m
+[1mindex 48f77db..6b75ec6 100644[m
+[1m--- a/Business/Paginas/Global.cs[m
+[1m+++ b/Business/Paginas/Global.cs[m
+[36m@@ -9,9 +9,16 @@[m [mnamespace Business.Paginas[m
+     {[m
+         public int pontos { get; private set; }[m
+         public List<Planetas> listPlanetas { get; private set; }[m
+[31m-        public Global(List<Planetas> ListPlanetas)[m
+[32m+[m
+[32m+[m[32m        public Menu.Menu menu { get; private set; }[m
+[32m+[m[32m       public Global(List<Planetas> ListPlanetas)[m
+         {[m
+             listPlanetas = ListPlanetas;[m
+[32m+[m[32m            menu = new Menu.Menu();[m
+[32m+[m[41m            [m
+         }[m
+[32m+[m
+[32m+[m
+[32m+[m[41m        [m
+     }[m
+ }[m
+[1mdiff --git a/Business/Paginas/Hangar.cs b/Business/Paginas/Hangar.cs[m
+[1mindex c978afc..4b7407e 100644[m
+[1m--- a/Business/Paginas/Hangar.cs[m
+[1m+++ b/Business/Paginas/Hangar.cs[m
+[36m@@ -1,4 +1,5 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Business.Elementos;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[36m@@ -8,7 +9,7 @@[m [mnamespace Business.Paginas[m
+     class Hangar: IPagina[m
+     {[m
+         public Hangar()[m
+[31m-            : base(new Elementos.BtnMenu("Hangar", Elementos.ElementoPesquisaEnum._id, "Hangar"))[m
+[32m+[m[32m            : base("MenuHangar")[m
+         {[m
+ [m
+         }[m
+[1mdiff --git a/Business/Paginas/IPagina.cs b/Business/Paginas/IPagina.cs[m
+[1mindex 329c3f7..33d21d0 100644[m
+[1m--- a/Business/Paginas/IPagina.cs[m
+[1m+++ b/Business/Paginas/IPagina.cs[m
+[36m@@ -1,4 +1,6 @@[m
+[31m-﻿using OpenQA.Selenium;[m
+[32m+[m[32m﻿using Business.Configs;[m
+[32m+[m[32musing Business.Elementos;[m
+[32m+[m[32musing OpenQA.Selenium;[m
+ using System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+[36m@@ -8,11 +10,14 @@[m [mnamespace Business[m
+     public abstract class IPagina[m
+     {[m
+ [m
+[31m-        Elementos.BtnMenu btnIdentificador;[m
+[32m+[m[32m        Button btnIdentificador;[m
+ [m
+[31m-        public IPagina(Elementos.BtnMenu Identificador)[m
+[32m+[m[32m        public IPagina(string KeyCustomConfig)[m
+         {[m
+[31m-            btnIdentificador = Identificador;[m
+[32m+[m[32m            if (!string.IsNullOrEmpty(KeyCustomConfig))[m
+[32m+[m[32m                btnIdentificador = new Button(CustomConfig.Settings.Buttons[KeyCustomConfig].GetIdentificador());[m
+[32m+[m[41m            [m
+[32m+[m[41m            [m
+         }[m
+         public abstract bool ValidateLogin(IWebDriver pagina);[m
+ [m
+[1mdiff --git a/Business/Paginas/Instalacoes.cs b/Business/Paginas/Instalacoes.cs[m
+[1mindex 21c70bb..63ddf94 100644[m
+[1m--- a/Business/Paginas/Instalacoes.cs[m
+[1m+++ b/Business/Paginas/Instalacoes.cs[m
+[36m@@ -1,21 +1,96 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Business.Elementos;[m
+[32m+[m[32musing OpenQA.Selenium;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+ [m
+ namespace Business.Paginas[m
+ {[m
+[31m-    class Instalacoes: IPagina[m
+[32m+[m[32m    public class Instalacoes: IPagina[m
+     {[m
+[32m+[m[32m        BtnsEvolucao fabricaRobots;[m
+[32m+[m[32m        BtnsEvolucao hangar;[m
+[32m+[m[32m        BtnsEvolucao labratorioPesquisas;[m
+[32m+[m[32m        BtnsEvolucao depositoAlianca;[m
+[32m+[m[32m        BtnsEvolucao fabricaNanites;[m
+[32m+[m[32m        BtnsEvolucao terraFormador;[m
+[32m+[m[32m        BtnsEvolucao siloMisseis;[m
+         public Instalacoes()[m
+[31m-            : base(new Elementos.BtnMenu("Instalações", Elementos.ElementoPesquisaEnum._id, "Instalações"))[m
+[32m+[m[32m            : base("MenuInstalacoes")[m
+         {[m
+[31m-[m
+[32m+[m[32m            fabricaRobots = new BtnsEvolucao("FabricaRobots");[m
+[32m+[m[32m            hangar = new BtnsEvolucao("Hangar");[m
+[32m+[m[32m            labratorioPesquisas = new BtnsEvolucao("LabratorioPesquisas");[m
+[32m+[m[32m            depositoAlianca = new BtnsEvolucao("DepositoAlianca");[m
+[32m+[m[32m            fabricaNanites = new BtnsEvolucao("FabricaNanites");[m
+[32m+[m[32m            terraFormador = new BtnsEvolucao("TerraFormador");[m
+[32m+[m[32m            siloMisseis = new BtnsEvolucao("SiloMisseis");[m
+         }[m
+ [m
+         public override bool ValidateLogin(OpenQA.Selenium.IWebDriver pagina)[m
+         {[m
+             throw new NotImplementedException();[m
+         }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        public void EvoluirFabricaRobots(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            fabricaRobots.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirHangar(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            hangar.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirLabratorioPesquisas(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            labratorioPesquisas.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirSiloMisseis(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            siloMisseis.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirTerraFormador(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            terraFormador.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirFabricaNanites(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            fabricaNanites.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirDepositoAlianca(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            depositoAlianca.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        public void DetailFabricaRobots(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            fabricaRobots.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailHangar(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            hangar.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailLabratorioPesquisas(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            labratorioPesquisas.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailDepositoAlianca(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            depositoAlianca.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailSiloMisseis(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            siloMisseis.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailFabricaNanites(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            fabricaNanites.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailTerraFormador(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            terraFormador.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+     }[m
+ }[m
+[1mdiff --git a/Business/Paginas/Login.cs b/Business/Paginas/Login.cs[m
+[1mindex 7376ce7..97af916 100644[m
+[1m--- a/Business/Paginas/Login.cs[m
+[1m+++ b/Business/Paginas/Login.cs[m
+[36m@@ -6,52 +6,42 @@[m [musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[32m+[m[32musing Business.Configs;[m
+ [m
+ namespace Business.Paginas[m
+ {[m
+     public class Login : IPagina[m
+     {[m
+[31m-        Utilizador utilizador;[m
+[31m-        Textbox txtPassword;[m
+[31m-        Textbox txtUsername;[m
+[31m-        Button btnEntrar;[m
+[31m-        Button btnSubmit;[m
+[31m-        Combobox cmbUniverso;[m
+         public Global global { get; private set; }[m
+         public IWebDriver paginaElementos { get; private set; }[m
+[31m-        [m
+[32m+[m[32m        public Registar registar;[m
+         public bool OpenPagina(string url = "http://www.ogame.com.pt")[m
+         {[m
+             paginaElementos.Navigate().GoToUrl(url);[m
+             paginaElementos.Manage().Window.Maximize();[m
+             return true;[m
+         }[m
+[31m-        public Login(Utilizador Utilizador) : base (null)[m
+[32m+[m[32m        Utilizador utilizador;[m
+[32m+[m[32m        Entrar entrar;[m
+[32m+[m[32m        public Login(Utilizador ObjUtilizador):base(null)[m
+         {[m
+[31m-            utilizador = Utilizador;[m
+[32m+[m[32m            utilizador = ObjUtilizador;[m
+[32m+[m[32m            entrar = new Entrar(utilizador);[m
+[32m+[m[32m            registar = new Registar(utilizador);[m
+             paginaElementos = new FirefoxDriver();[m
+[31m-            txtUsername = new Textbox("usernameLogin",ElementoPesquisaEnum._id,utilizador.userName);[m
+[31m-            txtPassword = new Textbox("passwordLogin", ElementoPesquisaEnum._id, utilizador.password);[m
+[31m-            btnEntrar = new Button("loginBtn", ElementoPesquisaEnum._id);[m
+[31m-            cmbUniverso = new Combobox("serverLogin", ElementoPesquisaEnum._id,utilizador.universo);[m
+[31m-            btnSubmit = new Button("loginSubmit", ElementoPesquisaEnum._id);[m
+         }[m
+[32m+[m
+         public override bool Entrar(IWebDriver pagina)[m
+         {[m
+             try[m
+             {[m
+                 if (ValidateLogin(pagina))[m
+                 {[m
+[31m-                    btnEntrar.Funcao(pagina);[m
+[31m-                    txtUsername.Funcao(pagina);[m
+[31m-                    txtPassword.Funcao(pagina);[m
+[31m-                    cmbUniverso.Funcao(pagina);[m
+[31m-                    btnSubmit.Funcao(pagina);[m
+[31m-                    [m
+[32m+[m[32m                    entrar.Login(pagina);[m
+[32m+[m[32m                    if (!ValidateLogin(pagina))[m
+                     global = new Global(Planetas.GetPlanetas(pagina));[m
+[31m-                    return true;[m
+                 }[m
+[31m-                return false;[m
+[32m+[m[32m                return !ValidateLogin(pagina);[m
+             }[m
+             catch (Exception ex)[m
+             {[m
+[36m@@ -59,7 +49,6 @@[m [mnamespace Business.Paginas[m
+             }[m
+         }[m
+ [m
+[31m-[m
+         public override bool ValidateLogin(IWebDriver pagina)[m
+         {[m
+             if (pagina.Title.ToUpper().Contains("Página Inicial Ogame".ToUpper()))[m
+[36m@@ -67,5 +56,83 @@[m [mnamespace Business.Paginas[m
+             return false;[m
+         [m
+         }[m
+[32m+[m
+[32m+[m[32m        public void Registar(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            registar.ResgistarUtilizador(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[41m        [m
+[32m+[m[32m    }[m
+[32m+[m[32m    public class Entrar[m
+[32m+[m[32m    {[m
+[32m+[m[32m        Textbox txtPassword;[m
+[32m+[m[32m        Textbox txtUsername;[m
+[32m+[m[32m        Button btnEntrar;[m
+[32m+[m[32m        Button btnSubmit;[m
+[32m+[m[32m        Combobox cmbUniverso;[m
+[32m+[m
+[32m+[m[32m        public Entrar(Utilizador Utilizador)[m
+[32m+[m[32m        {[m
+[32m+[m
+[32m+[m[32m            txtUsername = new Textbox(CustomConfig.Settings.Buttons["txtuserLogin"].GetIdentificador(), Utilizador.userName);[m
+[32m+[m[32m            txtPassword = new Textbox(CustomConfig.Settings.Buttons["txtPassworLogin"].GetIdentificador(), Utilizador.password);[m
+[32m+[m[32m            btnEntrar = new Button(CustomConfig.Settings.Buttons["btnEntrar"].GetIdentificador());[m
+[32m+[m[32m            cmbUniverso = new Combobox(CustomConfig.Settings.Buttons["cmbUniverso"].GetIdentificador(), Utilizador.universo);[m
+[32m+[m[32m            btnSubmit = new Button(CustomConfig.Settings.Buttons["btnloginSubmit"].GetIdentificador());[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void Login(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            try[m
+[32m+[m[32m            {[m
+[32m+[m[32m                btnEntrar.Funcao(pagina);[m
+[32m+[m[32m                txtUsername.Funcao(pagina);[m
+[32m+[m[32m                txtPassword.Funcao(pagina);[m
+[32m+[m[32m                cmbUniverso.Funcao(pagina);[m
+[32m+[m[32m                btnSubmit.Funcao(pagina);[m
+[32m+[m[32m            }[m
+[32m+[m[32m            catch (Exception ex)[m
+[32m+[m[32m            {[m
+[32m+[m[32m                throw new Exception(ex.Message);[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public class Registar[m
+[32m+[m[32m    {[m
+[32m+[m[32m        Textbox txtPassword;[m
+[32m+[m[32m        Textbox txtUsername;[m
+[32m+[m[32m        Textbox txtEmail;[m
+[32m+[m[32m        Button btnSubmit;[m
+[32m+[m[32m        Combobox cmbUniverso;[m
+[32m+[m[32m        Button aceitarTermos;[m
+[32m+[m[32m        public Registar(Utilizador Utilizador)[m
+[32m+[m[32m        {[m
+[32m+[m
+[32m+[m[32m            txtUsername = new Textbox(CustomConfig.Settings.Buttons["txtusernameRegister"].GetIdentificador(), Utilizador.userName);[m
+[32m+[m[32m            txtPassword = new Textbox(CustomConfig.Settings.Buttons["txtPasswordRegister"].GetIdentificador(), Utilizador.password);[m
+[32m+[m[32m            txtEmail = new Textbox(CustomConfig.Settings.Buttons["txtEmailRegister"].GetIdentificador(), Utilizador.email);[m
+[32m+[m[32m            cmbUniverso = new Combobox(CustomConfig.Settings.Buttons["cmbServerLoginRegister"].GetIdentificador(), Utilizador.universo, "div");[m
+[32m+[m[32m            btnSubmit = new Button(CustomConfig.Settings.Buttons["btnSubmitRegister"].GetIdentificador());[m
+[32m+[m[32m            aceitarTermos = new Button(CustomConfig.Settings.Buttons["chkAcceptRegister"].GetIdentificador());[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public bool ResgistarUtilizador(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            try[m
+[32m+[m[32m            {[m
+[32m+[m[32m                txtUsername.Funcao(pagina);[m
+[32m+[m[32m                txtPassword.Funcao(pagina);[m
+[32m+[m[32m                txtEmail.Funcao(pagina);[m
+[32m+[m[32m                cmbUniverso.Funcao(pagina);[m
+[32m+[m[32m                aceitarTermos.Funcao(pagina);[m
+[32m+[m[32m                btnSubmit.Funcao(pagina);[m
+[32m+[m[32m                return true;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            catch (Exception ex)[m
+[32m+[m[32m            {[m
+[32m+[m[32m                throw new Exception(ex.Message);[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+     }[m
+[32m+[m[41m   [m
+ }[m
+[1mdiff --git a/Business/Paginas/Pesquisas.cs b/Business/Paginas/Pesquisas.cs[m
+[1mindex a72e899..fc7aef8 100644[m
+[1m--- a/Business/Paginas/Pesquisas.cs[m
+[1m+++ b/Business/Paginas/Pesquisas.cs[m
+[36m@@ -1,21 +1,23 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Business.Elementos;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+ [m
+ namespace Business.Paginas[m
+ {[m
+[31m-    class Pesquisas: IPagina[m
+[32m+[m[32m    class Pesquisas : IPagina[m
+     {[m
+         public Pesquisas()[m
+[31m-            : base(new Elementos.BtnMenu("Pesquisas", Elementos.ElementoPesquisaEnum._id, "Pesquisas"))[m
+[32m+[m[32m            : base("MenuPesquisa")[m
+         {[m
+ [m
+         }[m
+[31m-    [m
+[31m-public override bool ValidateLogin(OpenQA.Selenium.IWebDriver pagina)[m
+[31m-{[m
+[31m- 	throw new NotImplementedException();[m
+[31m-}[m
+[31m-}[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        public override bool ValidateLogin(OpenQA.Selenium.IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            throw new NotImplementedException();[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/Business/Paginas/PesquisasSettings.cs b/Business/Paginas/PesquisasSettings.cs[m
+[1mdeleted file mode 100644[m
+[1mindex 1e5f18b..0000000[m
+[1m--- a/Business/Paginas/PesquisasSettings.cs[m
+[1m+++ /dev/null[m
+[36m@@ -1,21 +0,0 @@[m
+[31m-﻿using System;[m
+[31m-using System.Collections.Generic;[m
+[31m-using System.Linq;[m
+[31m-using System.Text;[m
+[31m-[m
+[31m-namespace Business.Paginas[m
+[31m-{[m
+[31m-    class PesquisasSettings: IPagina[m
+[31m-    {[m
+[31m-        public PesquisasSettings()[m
+[31m-            : base(new Elementos.BtnMenu("Pesquisas", Elementos.ElementoPesquisaEnum._id, ""))[m
+[31m-        {[m
+[31m-[m
+[31m-        }[m
+[31m-[m
+[31m-        public override bool ValidateLogin(OpenQA.Selenium.IWebDriver pagina)[m
+[31m-        {[m
+[31m-            throw new NotImplementedException();[m
+[31m-        }[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/Business/Paginas/Planetas.cs b/Business/Paginas/Planetas.cs[m
+[1mindex b1d6782..7353242 100644[m
+[1m--- a/Business/Paginas/Planetas.cs[m
+[1m+++ b/Business/Paginas/Planetas.cs[m
+[36m@@ -1,4 +1,6 @@[m
+[31m-﻿using OpenQA.Selenium;[m
+[32m+[m[32m﻿using Business.Configs;[m
+[32m+[m[32musing Business.Elementos;[m
+[32m+[m[32musing OpenQA.Selenium;[m
+ using System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+[36m@@ -11,26 +13,26 @@[m [mnamespace Business.Paginas[m
+         public string nome { get; set; }[m
+         public Coordenadas coordenadas { get; private set; }[m
+ [m
+[31m-        BtnsPlanetas BtnSelecionar; [m
+[31m-        public Planetas(string IdDiv,string Nome, Coordenadas Coordenadas)[m
+[32m+[m[32m        BtnsPlanetas BtnSelecionar;[m
+[32m+[m[32m        public Planetas(BtnsPlanetas btnSelecionar, string Nome, Coordenadas Coordenadas)[m
+         {[m
+             nome = Nome;[m
+             coordenadas = Coordenadas;[m
+[31m-            BtnSelecionar = new BtnsPlanetas(new Elementos.btnPlanetas(IdDiv,Elementos.ElementoPesquisaEnum._id),null);[m
+[32m+[m[32m            BtnSelecionar = btnSelecionar;[m
+         }[m
+         public static List<Planetas> GetPlanetas(IWebDriver Pagina)[m
+         {[m
+             List<Planetas> lstPlanetas = new List<Planetas>();[m
+[31m-            var containerPlanetas = Pagina.FindElement(By.Id("planetList"));[m
+[31m-            var planetas = containerPlanetas.FindElements(By.TagName("Div"));[m
+[32m+[m[32m            var planetas = Pagina.FindElements(By.XPath(CustomConfig.Settings.Buttons["listaPlanetas"].Value));[m
+ [m
+             foreach (IWebElement planeta in planetas)[m
+             {[m
+[31m-                string IdDiv = planeta.GetAttribute("id");[m
+[32m+[m[32m                string IdDiv = CustomConfig.Settings.Buttons["planeta"].Value;[m
+[32m+[m[32m                IdDiv = IdDiv.Replace("?", planeta.GetAttribute("id"));[m
+                 var links = planeta.FindElements(By.TagName("a"));[m
+                 IWebElement link = links.FirstOrDefault(x => x.GetAttribute("class").Contains("planetlink"));[m
+                 string[] coorednadas = link.FindElement(By.ClassName("planet-koords")).Text.Replace("[", "").Replace("]", "").Split(':');[m
+[31m-                lstPlanetas.Add(new Planetas(IdDiv, link.FindElement(By.ClassName("planet-name")).Text, new Coordenadas(Convert.ToInt32(coorednadas[0]), Convert.ToInt32(coorednadas[1]), Convert.ToInt32(coorednadas[2]))));[m
+[32m+[m[32m                lstPlanetas.Add(new Planetas(new BtnsPlanetas(new Button(new Identificador(IdDiv,ElementoPesquisaEnum._path)),null), link.FindElement(By.ClassName("planet-name")).Text, new Coordenadas(Convert.ToInt32(coorednadas[0]), Convert.ToInt32(coorednadas[1]), Convert.ToInt32(coorednadas[2]))));[m
+             }[m
+             return lstPlanetas;[m
+         }[m
+[36m@@ -58,9 +60,9 @@[m [mnamespace Business.Paginas[m
+ [m
+     public class BtnsPlanetas[m
+     {[m
+[31m-        public Elementos.btnPlanetas principal { get; set; }[m
+[31m-        public Elementos.btnPlanetas secundario { get; set; }[m
+[31m-        public BtnsPlanetas(Elementos.btnPlanetas Principal, Elementos.btnPlanetas Secundario)[m
+[32m+[m[32m        public Elementos.Button principal { get; set; }[m
+[32m+[m[32m        public Elementos.Button secundario { get; set; }[m
+[32m+[m[32m        public BtnsPlanetas(Elementos.Button Principal, Elementos.Button Secundario)[m
+         {[m
+             principal = Principal;[m
+             secundario = Secundario;[m
+[1mdiff --git a/Business/Paginas/Recursos.cs b/Business/Paginas/Recursos.cs[m
+[1mindex b5fdf1f..73a7ba4 100644[m
+[1m--- a/Business/Paginas/Recursos.cs[m
+[1m+++ b/Business/Paginas/Recursos.cs[m
+[36m@@ -1,4 +1,6 @@[m
+[31m-﻿using OpenQA.Selenium;[m
+[32m+[m[32m﻿using Business.Configs;[m
+[32m+[m[32musing Business.Elementos;[m
+[32m+[m[32musing OpenQA.Selenium;[m
+ using System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+[36m@@ -8,38 +10,129 @@[m [mnamespace Business.Paginas[m
+ {[m
+     public class Recursos : IPagina[m
+     {[m
+[31m-        Elementos.BtnRecusros MinaMetal;[m
+[31m-        Elementos.BtnRecusros MinaMetalFast;[m
+[31m-        Elementos.BtnRecusros MinaCristal;[m
+[31m-        Elementos.BtnRecusros MinaCristalFast;[m
+[31m-        Elementos.BtnRecusros MinaDeuterio;[m
+[31m-        Elementos.BtnRecusros MinaDeuterioFast;[m
+[31m-        Elementos.BtnRecusros PlantaEnergia;[m
+[31m-        Elementos.BtnRecusros PlantaEnergiaFast;[m
+[31m-        Elementos.BtnRecusros PlantaFusao;[m
+[31m-        Elementos.BtnRecusros PlantaFusaoFast;[m
+[31m-       [m
+[31m-        public Recursos() :base(new Elementos.BtnMenu("Recursos",Elementos.ElementoPesquisaEnum._id,"Recursos"))[m
+[31m-        {[m
+[31m-            MinaMetal = new Elementos.BtnRecusros("button1", Elementos.ElementoPesquisaEnum._id, "details", "building");[m
+[31m-            MinaMetalFast = new Elementos.BtnRecusros("button1", Elementos.ElementoPesquisaEnum._id, "", "building");[m
+[31m-            MinaCristal = new Elementos.BtnRecusros("button2", Elementos.ElementoPesquisaEnum._id, "details", "building");[m
+[31m-            MinaCristalFast = new Elementos.BtnRecusros("button2", Elementos.ElementoPesquisaEnum._id, "", "building");[m
+[31m-            MinaDeuterio = new Elementos.BtnRecusros("button3", Elementos.ElementoPesquisaEnum._id, "details", "building");[m
+[31m-            MinaDeuterioFast = new Elementos.BtnRecusros("button3", Elementos.ElementoPesquisaEnum._id, "", "building");[m
+[31m-            PlantaEnergia = new Elementos.BtnRecusros("button4", Elementos.ElementoPesquisaEnum._id, "details", "building");[m
+[31m-            PlantaEnergiaFast = new Elementos.BtnRecusros("button4", Elementos.ElementoPesquisaEnum._id, "", "building");[m
+[31m-            PlantaFusao = new Elementos.BtnRecusros("button5", Elementos.ElementoPesquisaEnum._id, "details", "building");[m
+[31m-            PlantaFusaoFast = new Elementos.BtnRecusros("button5", Elementos.ElementoPesquisaEnum._id, "", "building");[m
+[32m+[m[32m        BtnsEvolucao MinaMetal;[m
+[32m+[m[32m        BtnsEvolucao MinaCristal;[m
+[32m+[m[32m        BtnsEvolucao MinaDeuterio;[m
+[32m+[m[32m        BtnsEvolucao PlantaEnergia;[m
+[32m+[m[32m        BtnsEvolucao PlantaFusao;[m
+[32m+[m[32m        BtnsEvolucao ArmazemMetal;[m
+[32m+[m[32m        BtnsEvolucao ArmazemCristal;[m
+[32m+[m[32m        BtnsEvolucao ArmazemDeuterio;[m
+[32m+[m[32m        BtnsEvolucao EsconderijoMetal;[m[41m        [m
+[32m+[m[32m        BtnsEvolucao EsconderijoCristal;[m
+[32m+[m[32m        BtnsEvolucao EsconderijoDeuterio;[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        public Recursos()[m
+[32m+[m[32m            : base("MenuRecursos")[m
+[32m+[m[32m        {[m
+[32m+[m[32m            MinaMetal = new BtnsEvolucao("MinaMetal");[m
+[32m+[m[32m            MinaCristal = new BtnsEvolucao("MinaCristal");[m
+[32m+[m[32m            MinaDeuterio = new BtnsEvolucao("MinaDeuterio");[m
+[32m+[m[32m            PlantaEnergia = new BtnsEvolucao("PlantaEnergia");[m
+[32m+[m[32m            PlantaFusao = new BtnsEvolucao("PlantaFusao");[m
+[32m+[m[32m            ArmazemMetal = new BtnsEvolucao("ArmazemMetal");[m
+[32m+[m[32m            ArmazemCristal = new BtnsEvolucao("ArmazemCristal");[m
+[32m+[m[32m            ArmazemDeuterio = new BtnsEvolucao("ArmazemDeuterio");[m
+[32m+[m[32m            EsconderijoMetal = new BtnsEvolucao("EsconderijoMetal");[m
+[32m+[m[32m            EsconderijoCristal = new BtnsEvolucao("EsconderijoCristal");[m
+[32m+[m[32m            EsconderijoDeuterio = new BtnsEvolucao("EsconderijoDeuterio");[m
+         }[m
+         public override bool ValidateLogin(OpenQA.Selenium.IWebDriver pagina)[m
+         {[m
+             throw new NotImplementedException();[m
+         }[m
+[31m-[m
+[32m+[m[41m         [m
+         public void EvoluirMinaMetal(IWebDriver pagina)[m
+         {[m
+[31m-            MinaMetal.Funcao(pagina);[m
+[32m+[m[32m            MinaMetal.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirMinaCristal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            MinaCristal.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirMinaDeuterio(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            MinaDeuterio.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirPlantaEnergia(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            PlantaEnergia.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirPlantaFusao(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            PlantaFusao.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirArmazemMetal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            ArmazemMetal.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirarmazemCristal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            ArmazemCristal.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirArmazemDeuterio(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            ArmazemDeuterio.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirEsconderijoMetal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            EsconderijoMetal.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirEsconderijoCristal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            EsconderijoCristal.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void EvoluirEsconderijoDeuterio(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            EsconderijoDeuterio.evoluir.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        public void DetailMinaMetal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            MinaMetal.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailMinaCristal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            MinaCristal.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailMinaDeuterio(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            MinaDeuterio.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailPlantaEnergia(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            PlantaEnergia.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailPlantaFusao(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            PlantaFusao.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailArmazemMetal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            ArmazemMetal.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailarmazemCristal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            ArmazemCristal.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailArmazemDeuterio(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            ArmazemDeuterio.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailEsconderijoMetal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            EsconderijoMetal.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailEsconderijoCristal(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            EsconderijoCristal.detail.Funcao(pagina);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        public void DetailEsconderijoDeuterio(IWebDriver pagina)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            EsconderijoDeuterio.detail.Funcao(pagina);[m
+         }[m
+     }[m
+ }[m
+[1mdiff --git a/Business/Paginas/RecursosSettings.cs b/Business/Paginas/RecursosSettings.cs[m
+[1mindex a3ac8d0..d131fea 100644[m
+[1m--- a/Business/Paginas/RecursosSettings.cs[m
+[1m+++ b/Business/Paginas/RecursosSettings.cs[m
+[36m@@ -1,4 +1,5 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Business.Elementos;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[36m@@ -8,7 +9,7 @@[m [mnamespace Business.Paginas[m
+     class RecursosSettings : IPagina[m
+     {[m
+         public RecursosSettings()[m
+[31m-            : base(new Elementos.BtnMenu("Recursos", Elementos.ElementoPesquisaEnum._id,""))[m
+[32m+[m[32m            : base("MenuRecursosSettings")[m
+         {[m
+ [m
+         }[m
+[1mdiff --git a/Business/Paginas/VistaGeral.cs b/Business/Paginas/VistaGeral.cs[m
+[1mindex 09df2c5..6ebf66a 100644[m
+[1m--- a/Business/Paginas/VistaGeral.cs[m
+[1m+++ b/Business/Paginas/VistaGeral.cs[m
+[36m@@ -1,4 +1,5 @@[m
+[31m-﻿using System;[m
+[32m+[m[32m﻿using Business.Elementos;[m
+[32m+[m[32musing System;[m
+ using System.Collections.Generic;[m
+ using System.Linq;[m
+ using System.Text;[m
+[36m@@ -8,7 +9,7 @@[m [mnamespace Business.Paginas[m
+     class VistaGeral: IPagina[m
+     {[m
+         public VistaGeral()[m
+[31m-            : base(new Elementos.BtnMenu("Vista Geral", Elementos.ElementoPesquisaEnum._id, "Vista Geral"))[m
+[32m+[m[32m            : base("MenuVistaGeral")[m
+         {[m
+ [m
+         }[m
+[1mdiff --git a/DTO/Utilizador.cs b/DTO/Utilizador.cs[m
+[1mindex 23c833d..2e9e254 100644[m
+[1m--- a/DTO/Utilizador.cs[m
+[1m+++ b/DTO/Utilizador.cs[m
+[36m@@ -7,35 +7,28 @@[m [mnamespace DTO[m
+ {[m
+     public class Utilizador[m
+     {[m
+[31m-        private string _userName;[m
+[31m-        private string _password;[m
+[31m-        private string _universo;[m
+         public string userName[m
+         {[m
+[31m-            get[m
+[31m-            {[m
+[31m-                return _userName;[m
+[31m-            }[m
+[32m+[m[32m            get;[m
+[32m+[m[32m            private set;[m
+         }[m
+         public string password[m
+         {[m
+[31m-            get[m
+[31m-            {[m
+[31m-                return _password;[m
+[31m-            }[m
+[32m+[m[32m            get;[m
+[32m+[m[32m            private set;[m
+         }[m
+         public string universo[m
+         {[m
+[31m-            get[m
+[31m-            {[m
+[31m-                return _universo;[m
+[31m-            }[m
+[32m+[m[32m            get;[m
+[32m+[m[32m            private set;[m
+         }[m
+[31m-        public Utilizador(string Username, string Password, string Universo)[m
+[32m+[m[32m        public string email { get; set; }[m
+[32m+[m[32m        public Utilizador(string Username, string Password, string Universo, string Email)[m
+         {[m
+[31m-            _userName = Username;[m
+[31m-            _password = Password;[m
+[31m-            _universo = Universo;[m
+[32m+[m[32m            userName = Username;[m
+[32m+[m[32m            password = Password;[m
+[32m+[m[32m            universo = Universo;[m
+[32m+[m[32m            email = Email;[m
+         }[m
+     }[m
+ }[m
+[1mdiff --git a/Micael.WebDriver/ISearchWebElement.cs b/Micael.WebDriver/ISearchWebElement.cs[m
+[1mdeleted file mode 100644[m
+[1mindex 6d22cad..0000000[m
+[1m--- a/Micael.WebDriver/ISearchWebElement.cs[m
+[1m+++ /dev/null[m
+[36m@@ -1,13 +0,0 @@[m
+[31m-﻿using OpenQA.Selenium;[m
+[31m-using System;[m
+[31m-using System.Collections.Generic;[m
+[31m-using System.Linq;[m
+[31m-using System.Text;[m
+[31m-[m
+[31m-namespace Micael.WebDriver[m
+[31m-{[m
+[31m-    interface ISearchWebElement[m
+[31m-    {[m
+[31m-        public static IWebElement GetElemento(IWebDriver pagina, string Query);[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/Micael.WebDriver/Micael.WebDriver.csproj b/Micael.WebDriver/Micael.WebDriver.csproj[m
+[1mdeleted file mode 100644[m
+[1mindex d8b5367..0000000[m
+[1m--- a/Micael.WebDriver/Micael.WebDriver.csproj[m
+[1m+++ /dev/null[m
+[36m@@ -1,60 +0,0 @@[m
+[31m-﻿<?xml version="1.0" encoding="utf-8"?>[m
+[31m-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+[31m-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />[m
+[31m-  <PropertyGroup>[m
+[31m-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>[m
+[31m-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>[m
+[31m-    <ProjectGuid>{49C6FB2D-2C33-4ED7-894A-05D9F0D2552B}</ProjectGuid>[m
+[31m-    <OutputType>Library</OutputType>[m
+[31m-    <AppDesignerFolder>Properties</AppDesignerFolder>[m
+[31m-    <RootNamespace>Micael.WebDriver</RootNamespace>[m
+[31m-    <AssemblyName>Micael.WebDriver</AssemblyName>[m
+[31m-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>[m
+[31m-    <FileAlignment>512</FileAlignment>[m
+[31m-  </PropertyGroup>[m
+[31m-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">[m
+[31m-    <DebugSymbols>true</DebugSymbols>[m
+[31m-    <DebugType>full</DebugType>[m
+[31m-    <Optimize>false</Optimize>[m
+[31m-    <OutputPath>bin\Debug\</OutputPath>[m
+[31m-    <DefineConstants>DEBUG;TRACE</DefineConstants>[m
+[31m-    <ErrorReport>prompt</ErrorReport>[m
+[31m-    <WarningLevel>4</WarningLevel>[m
+[31m-  </PropertyGroup>[m
+[31m-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">[m
+[31m-    <DebugType>pdbonly</DebugType>[m
+[31m-    <Optimize>true</Optimize>[m
+[31m-    <OutputPath>bin\Release\</OutputPath>[m
+[31m-    <DefineConstants>TRACE</DefineConstants>[m
+[31m-    <ErrorReport>prompt</ErrorReport>[m
+[31m-    <WarningLevel>4</WarningLevel>[m
+[31m-  </PropertyGroup>[m
+[31m-  <ItemGroup>[m
+[31m-    <Reference Include="System" />[m
+[31m-    <Reference Include="System.Core" />[m
+[31m-    <Reference Include="System.Xml.Linq" />[m
+[31m-    <Reference Include="System.Data.DataSetExtensions" />[m
+[31m-    <Reference Include="Microsoft.CSharp" />[m
+[31m-    <Reference Include="System.Data" />[m
+[31m-    <Reference Include="System.Xml" />[m
+[31m-    <Reference Include="WebDriver">[m
+[31m-      <HintPath>..\..\..\Ogame\net40\WebDriver.dll</HintPath>[m
+[31m-    </Reference>[m
+[31m-    <Reference Include="WebDriver.Support">[m
+[31m-      <HintPath>..\..\..\Ogame\net40\WebDriver.Support.dll</HintPath>[m
+[31m-    </Reference>[m
+[31m-  </ItemGroup>[m
+[31m-  <ItemGroup>[m
+[31m-    <Compile Include="ISearchWebElement.cs" />[m
+[31m-    <Compile Include="Properties\AssemblyInfo.cs" />[m
+[31m-    <Compile Include="SearchWebElement.cs" />[m
+[31m-  </ItemGroup>[m
+[31m-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />[m
+[31m-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. [m
+[31m-       Other similar extension points exist, see Microsoft.Common.targets.[m
+[31m-  <Target Name="BeforeBuild">[m
+[31m-  </Target>[m
+[31m-  <Target Name="AfterBuild">[m
+[31m-  </Target>[m
+[31m-  -->[m
+[31m-</Project>[m
+\ No newline at end of file[m
+[1mdiff --git a/Micael.WebDriver/Properties/AssemblyInfo.cs b/Micael.WebDriver/Properties/AssemblyInfo.cs[m
+[1mdeleted file mode 100644[m
+[1mindex 4717fd4..0000000[m
+[1m--- a/Micael.WebDriver/Properties/AssemblyInfo.cs[m
+[1m+++ /dev/null[m
+[36m@@ -1,36 +0,0 @@[m
+[31m-﻿using System.Reflection;[m
+[31m-using System.Runtime.CompilerServices;[m
+[31m-using System.Runtime.InteropServices;[m
+[31m-[m
+[31m-// General Information about an assembly is controlled through the following [m
+[31m-// set of attributes. Change these attribute values to modify the information[m
+[31m-// associated with an assembly.[m
+[31m-[assembly: AssemblyTitle("Micael.WebDriver")][m
+[31m-[assembly: AssemblyDescription("")][m
+[31m-[assembly: AssemblyConfiguration("")][m
+[31m-[assembly: AssemblyCompany("")][m
+[31m-[assembly: AssemblyProduct("Micael.WebDriver")][m
+[31m-[assembly: AssemblyCopyright("Copyright ©  2015")][m
+[31m-[assembly: AssemblyTrademark("")][m
+[31m-[assembly: AssemblyCulture("")][m
+[31m-[m
+[31m-// Setting ComVisible to false makes the types in this assembly not visible [m
+[31m-// to COM components.  If you need to access a type in this assembly from [m
+[31m-// COM, set the ComVisible attribute to true on that type.[m
+[31m-[assembly: ComVisible(false)][m
+[31m-[m
+[31m-// The following GUID is for the ID of the typelib if this project is exposed to COM[m
+[31m-[assembly: Guid("92d595c3-48d5-4d52-8226-c9bb441f5ba9")][m
+[31m-[m
+[31m-// Version information for an assembly consists of the following four values:[m
+[31m-//[m
+[31m-//      Major Version[m
+[31m-//      Minor Version [m
+[31m-//      Build Number[m
+[31m-//      Revision[m
+[31m-//[m
+[31m-// You can specify all the values or you can default the Build and Revision Numbers [m
+[31m-// by using the '*' as shown below:[m
+[31m-// [assembly: AssemblyVersion("1.0.*")][m
+[31m-[assembly: AssemblyVersion("1.0.0.0")][m
+[31m-[assembly: AssemblyFileVersion("1.0.0.0")][m
+[1mdiff --git a/Micael.WebDriver/SearchWebElement.cs b/Micael.WebDriver/SearchWebElement.cs[m
+[1mdeleted file mode 100644[m
+[1mindex 4c7611b..0000000[m
+[1m--- a/Micael.WebDriver/SearchWebElement.cs[m
+[1m+++ /dev/null[m
+[36m@@ -1,66 +0,0 @@[m
+[31m-﻿using OpenQA.Selenium;[m
+[31m-using System;[m
+[31m-using System.Collections.Generic;[m
+[31m-using System.Collections.ObjectModel;[m
+[31m-using System.Linq;[m
+[31m-using System.Text;[m
+[31m-[m
+[31m-namespace Micael.WebDriver[m
+[31m-{[m
+[31m-    public class SearchWebElement :ISearchWebElement[m
+[31m-    {[m
+[31m-        public static IWebElement GetElemento(IWebDriver pagina, string Query)[m
+[31m-        {[m
+[31m-            try[m
+[31m-            {[m
+[31m-                string[] partQuery = Query.Split(';');[m
+[31m-                IWebElement menu = pagina.FindElement(By.Id("menuTable"));[m
+[31m-                var lstli = menu.FindElements(By.TagName("li"));[m
+[31m-                var li = lstli.FirstOrDefault(x => x.Text == partQuery[0]);[m
+[31m-                return li.FindElements(By.TagName("a")).FirstOrDefault(x => x.Text == partQuery[1]);[m
+[31m-            }[m
+[31m-            catch (Exception ex)[m
+[31m-            {[m
+[31m-                throw new Exception(ex.Message);[m
+[31m-            }[m
+[31m-        }[m
+[31m-        private static IWebElement GetById(IWebDriver pagina, string Id)[m
+[31m-        {[m
+[31m-[m
+[31m-            return pagina.FindElement(By.Id(Id));[m
+[31m-        }[m
+[31m-        private static ReadOnlyCollection<IWebElement> GetById(IWebDriver pagina, string Id)[m
+[31m-        {[m
+[31m-            return pagina.FindElements(By.Id(Id));[m
+[31m-        }[m
+[31m-        private static IWebElement GetByTagName(IWebDriver pagina, string TagName)[m
+[31m-        {[m
+[31m-[m
+[31m-            return pagina.FindElement(By.TagName(TagName));[m
+[31m-        }[m
+[31m-        private static ReadOnlyCollection<IWebElement> GetByTagName(IWebDriver pagina, string TagName)[m
+[31m-        {[m
+[31m-            return pagina.FindElements(By.TagName(TagName));[m
+[31m-        }[m
+[31m-[m
+[31m-        private static IWebElement GetByText(IWebDriver pagina, string Text)[m
+[31m-        {[m
+[31m-[m
+[31m-            return pagina.FindElement(By.LinkText(Text));[m
+[31m-        }[m
+[31m-        private static ReadOnlyCollection<IWebElement> GetByText(IWebDriver pagina, string Text)[m
+[31m-        {[m
+[31m-            return pagina.FindElements(By.LinkText(Text));[m
+[31m-        }[m
+[31m-[m
+[31m-        private static IWebElement GetByPartialText(IWebDriver pagina, string PartialText)[m
+[31m-        {[m
+[31m-[m
+[31m-            return pagina.FindElement(By.PartialLinkText(PartialText));[m
+[31m-        }[m
+[31m-        private static ReadOnlyCollection<IWebElement> GetByPartialText(IWebDriver pagina, string PartialText)[m
+[31m-        {[m
+[31m-            return pagina.FindElements(By.PartialLinkText(PartialText));[m
+[31m-        }[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/TestesUnitarios/Program.cs b/TestesUnitarios/Program.cs[m
+[1mindex 6311bb6..a4ec4f4 100644[m
+[1m--- a/TestesUnitarios/Program.cs[m
+[1m+++ b/TestesUnitarios/Program.cs[m
+[36m@@ -10,7 +10,9 @@[m [musing Business.Elementos;[m
+ using Business.Paginas;[m
+ using System.Xml;[m
+ using System.IO;[m
+[31m-[m
+[32m+[m[32musing System.Globalization;[m
+[32m+[m[32musing Business.Configs;[m
+[32m+[m[32musing System.Threading;[m
+ [m
+ namespace TestesUnitarios[m
+ {[m
+[36m@@ -19,25 +21,86 @@[m [mnamespace TestesUnitarios[m
+     {[m
+         static void Main(string[] args)[m
+         {[m
+[31m-            Utilizador utilizador = new Utilizador(ConfigurationSettings.AppSettings["Username"].ToString(), ConfigurationSettings.AppSettings["Password"].ToString(), ConfigurationSettings.AppSettings["Universo"].ToString());[m
+[32m+[m[32m            CustomConfig a1 = (CustomConfig)ConfigurationManager.GetSection("customConfig");[m
+[32m+[m[32m            Utilizador utilizador = new Utilizador(ConfigurationManager.AppSettings["Username"].ToString(), ConfigurationManager.AppSettings["Password"].ToString(), ConfigurationManager.AppSettings["Universo"].ToString(), ConfigurationManager.AppSettings["Email"].ToString());[m
+             Login login = new Login(utilizador);[m
+             login.OpenPagina();[m
+[31m-            login.Entrar(login.paginaElementos);[m
+[31m-            login.global.listPlanetas[0].Selecionar(login.paginaElementos);[m
+[31m-            //Menu menu = new Menu();[m
+[31m-            //menu.Recursos.principal.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //Recursos recurso = new Recursos();[m
+[31m-            //recurso.EvoluirMinaMetal(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.Recursos.settings.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.VistaGeral.principal.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.Pesquisas.principal.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.Pesquisas.settings.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.Hangar.principal.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.Defesas.principal.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.Frota.principal.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.Frota.settings.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.Instalacoes.principal.Entrar(NegocioGeral.PaginaElementos);[m
+[31m-            //menu.Galaxia.principal.Entrar(NegocioGeral.PaginaElementos);[m
+[32m+[m[32m            bool continuar = true;[m
+[32m+[m[32m            if (!login.Entrar(login.paginaElementos))[m
+[32m+[m[32m            {[m
+[32m+[m[32m                Encoding enc = Encoding.Default;[m
+[32m+[m[32m                continuar = false;[m
+[32m+[m[32m                Console.WriteLine("User não registado, Pretende registar?");[m
+[32m+[m[32m                string a = Console.ReadLine();[m
+[32m+[m[32m                if (a.ToUpper() == "S")[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    login.Registar((login.paginaElementos));[m
+[32m+[m[32m                    continuar = true;[m
+[32m+[m[32m                }[m
+[32m+[m[32m                else[m
+[32m+[m[32m                    login.paginaElementos.Close();[m
+[32m+[m[32m            }[m
+[32m+[m[32m            if(continuar)[m
+[32m+[m[32m            {[m
+[32m+[m[32m                login.global.listPlanetas[0].Selecionar(login.paginaElementos);[m
+[32m+[m[32m                login.global.menu.EntrarRecursos(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailMinaMetal(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailMinaCristal(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailMinaDeuterio(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailPlantaEnergia(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailPlantaEnergia(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailPlantaFusao(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailArmazemMetal(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailarmazemCristal(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailArmazemDeuterio(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailEsconderijoMetal(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailEsconderijoCristal(login.paginaElementos);[m
+[32m+[m[32m                ((Recursos)login.global.menu.recursos.principal).DetailEsconderijoDeuterio(login.paginaElementos);[m
+[32m+[m
+[32m+[m[32m                login.global.menu.EntrarRecursos(login.paginaElementos,true);[m
+[32m+[m[32m                login.global.menu.EntrarInstalacoes(login.paginaElementos);[m
+[32m+[m[32m                ((Instalacoes)login.global.menu.instalacoes.principal).DetailFabricaRobots(login.paginaElementos);[m
+[32m+[m[32m                ((Instalacoes)login.global.menu.instalacoes.principal).DetailHangar(login.paginaElementos);[m
+[32m+[m[32m                ((Instalacoes)login.global.menu.instalacoes.principal).DetailLabratorioPesquisas(login.paginaElementos);[m
+[32m+[m[32m                ((Instalacoes)login.global.menu.instalacoes.principal).DetailDepositoAlianca(login.paginaElementos);[m
+[32m+[m[32m                ((Instalacoes)login.global.menu.instalacoes.principal).DetailSiloMisseis(login.paginaElementos);[m
+[32m+[m[32m                ((Instalacoes)login.global.menu.instalacoes.principal).DetailFabricaNanites(login.paginaElementos);[m
+[32m+[m[32m                ((Instalacoes)login.global.menu.instalacoes.principal).DetailTerraFormador(login.paginaElementos);[m
+[32m+[m
+[32m+[m[32m                login.global.menu.EntrarPesquisas(login.paginaElementos);[m
+[32m+[m[32m                login.global.menu.EntrarPesquisas(login.paginaElementos,true);[m
+[32m+[m[32m                login.global.menu.EntrarHangar(login.paginaElementos);[m
+[32m+[m[32m                login.global.menu.EntrarDefesas(login.paginaElementos);[m
+[32m+[m[32m                login.global.menu.EntrarGalaxia(login.paginaElementos);[m
+[32m+[m[32m                login.global.menu.EntrarFrota(login.paginaElementos);[m
+[32m+[m[32m                login.global.menu.EntrarFrota(login.paginaElementos,true);[m
+[32m+[m[32m                login.global.menu.EntrarVistaGeral(login.paginaElementos);[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m[32m    public class SomeSettings : ConfigurationSection[m
+[32m+[m[32m    {[m
+[32m+[m[32m        private SomeSettings() { }[m
+[32m+[m
+[32m+[m[32m        [ConfigurationProperty("FillColor", DefaultValue = "aaa")][m
+[32m+[m[32m        public string FillColor[m
+[32m+[m[32m        {[m
+[32m+[m[32m            get { return this["FillColor"].ToString(); }[m
+[32m+[m[32m            set { this["FillColor"] = value; }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        [ConfigurationProperty("TextSize", DefaultValue = "8.5")][m
+[32m+[m[32m        public string TextSize[m
+[32m+[m[32m        {[m
+[32m+[m[32m            get { return this["TextSize"].ToString(); }[m
+[32m+[m[32m            set { this["TextSize"] = value; }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        [ConfigurationProperty("FillOpacity", DefaultValue = "40")][m
+[32m+[m[32m        public string FillOpacity[m
+[32m+[m[32m        {[m
+[32m+[m[32m            get { return this["FillOpacity"].ToString(); }[m
+[32m+[m[32m            set { this["FillOpacity"] = value; }[m
+         }[m
+     }[m
+ }[m
+[1mdiff --git a/TestesUnitarios/TestesUnitarios.csproj b/TestesUnitarios/TestesUnitarios.csproj[m
+[1mindex 99bc489..dabf290 100644[m
+[1m--- a/TestesUnitarios/TestesUnitarios.csproj[m
+[1m+++ b/TestesUnitarios/TestesUnitarios.csproj[m
+[36m@@ -61,7 +61,9 @@[m
+   </PropertyGroup>[m
+   <ItemGroup>[m
+     <Reference Include="System" />[m
+[32m+[m[32m    <Reference Include="System.configuration" />[m
+     <Reference Include="System.Core" />[m
+[32m+[m[32m    <Reference Include="System.Web.Extensions" />[m
+     <Reference Include="System.Xml.Linq" />[m
+     <Reference Include="System.Data.DataSetExtensions" />[m
+     <Reference Include="Microsoft.CSharp" />[m
+[36m@@ -84,7 +86,9 @@[m
+     </Compile>[m
+   </ItemGroup>[m
+   <ItemGroup>[m
+[31m-    <None Include="app.config" />[m
+[32m+[m[32m    <None Include="app.config">[m
+[32m+[m[32m      <SubType>Designer</SubType>[m
+[32m+[m[32m    </None>[m
+     <None Include="Properties\Settings.settings">[m
+       <Generator>SettingsSingleFileGenerator</Generator>[m
+       <LastGenOutput>Settings.Designer.cs</LastGenOutput>[m
+[1mdiff --git a/TestesUnitarios/app.config b/TestesUnitarios/app.config[m
+[1mindex 7f14323..a42e239 100644[m
+[1m--- a/TestesUnitarios/app.config[m
+[1m+++ b/TestesUnitarios/app.config[m
+[36m@@ -1,8 +1,90 @@[m
+[31m-﻿<?xml version="1.0" encoding="utf-8" ?>[m
+[32m+[m[32m﻿<?xml version="1.0" encoding="utf-8"?>[m
+ <configuration>[m
+[31m-  <appSettings>[m
+[31m-    <add key="UserName" value="jmacnico"/>[m
+[31m-    <add key="Password" value="Narceitisou123"/>[m
+[31m-    <add key="Universo" value="Vega"/>[m
+[32m+[m[32m  <configSections>[m
+[32m+[m[32m    <section name="customConfig" type="Business.Configs.CustomConfig,Business"/>[m
+[32m+[m[32m  </configSections>[m[41m [m
+[32m+[m[41m  [m
+[32m+[m[32m    <appSettings>[m
+[32m+[m[32m    <add key="UserName" value="jmacnico" />[m
+[32m+[m[32m    <add key="Password" value="Narceitisou123" />[m
+[32m+[m[32m    <add key="Universo" value="Vega" />[m
+[32m+[m[32m    <add key="Email" value="josemicael16@hotmail.com" />[m
+[32m+[m[32m    <add key="ClientSettingsProvider.ServiceUri" value="" />[m
+   </appSettings>[m
+[32m+[m[41m      [m
+[32m+[m[32m  <customConfig>[m
+[32m+[m[32m    <buttons>[m
+[32m+[m[32m      <button name="btnEntrar" value="loginBtn" />[m
+[32m+[m[32m      <button name="txtuserLogin" value="usernameLogin" />[m
+[32m+[m[32m      <button name="txtPassworLogin" value="passwordLogin" />[m
+[32m+[m[32m      <button name="cmbUniverso" value="serverLogin"/>[m
+[32m+[m[32m      <button name="btnloginSubmit" value="loginSubmit" />[m
+[32m+[m[32m      <button name="txtusernameRegister" value="username" />[m
+[32m+[m[32m      <button name="txtPasswordRegister" value="password" />[m
+[32m+[m[32m      <button name="txtEmailRegister" value="email" />[m
+[32m+[m[32m      <button name="cmbServerLoginRegister" value="serverLogin" />[m
+[32m+[m[32m      <button name="btnSubmitRegister" value="regSubmit" />[m
+[32m+[m[32m      <button name="chkAcceptRegister" value="agb" />[m
+[32m+[m[32m      <button name="listaPlanetas" value="//div[@id='planetList']/div" searchType="_path" />[m
+[32m+[m[32m      <button name="planeta" value="//div[@id='?']/a[contains(@class,'planetlink')]" searchType="_path" />[m
+[32m+[m[32m    <!--Menu-->[m
+[32m+[m[32m      <button name="MenuVistaGeral" value="//ul[@id='menuTable']/li/a[contains(@href,'overview')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuRecursos" value="//ul[@id='menuTable']/li/a[contains(@href,'resources')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuRecursosSettings" value="//ul[@id='menuTable']/li/span/a[contains(@href,'resourceSettings')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuInstalacoes" value="//ul[@id='menuTable']/li/a[contains(@href,'station')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuPesquisa" value="//ul[@id='menuTable']/li/a[contains(@href,'research')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuPesquisaSettings" value="//ul[@id='menuTable']/li/span/a[contains(@href,'techtree')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuHangar" value="//ul[@id='menuTable']/li/a[contains(@href,'shipyard')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuDefesas" value="//ul[@id='menuTable']/li/a[contains(@href,'defense')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuFrota" value="//ul[@id='menuTable']/li/a[contains(@href,'fleet1')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuFrotaSettings" value="//ul[@id='menuTable']/li/span/a[contains(@href,'movement')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MenuGalaxia" value="//ul[@id='menuTable']/li/a[contains(@href,'galaxy')]" searchType="_path" />[m
+[32m+[m[41m      [m
+[32m+[m[41m      [m
+[32m+[m[32m<!-- Recurso-->[m
+[32m+[m[32m      <button name="MinaMetalDetails" value="//li[@id='button1']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="MinaMetalEvoluir" value="//li[@id='button1']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MinaCristalDetails" value="//li[@id='button2']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="MinaCristalEvoluir" value="//li[@id='button2']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="MinaDeuterioDetails" value="//li[@id='button3']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="MinaDeuterioEvoluir" value="//li[@id='button3']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="PlantaEnergiaDetails" value="//li[@id='button4']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="PlantaEnergiaEvoluir" value="//li[@id='button4']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="PlantaFusaoDetails" value="//li[@id='button5']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="PlantaFusaoEvoluir" value="//li[@id='button5']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="SatelitesDetails" value="//li[@id='button6']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="SatelitesEvoluir" value="//li[@id='button6']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="ArmazemMetalDetails" value="//li[@id='button7']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="ArmazemMetalEvoluir" value="//li[@id='button7']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="ArmazemCristalDetails" value="//li[@id='button8']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="ArmazemCristalEvoluir" value="//li[@id='button8']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="ArmazemDeuterioDetails" value="//li[@id='button9']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="ArmazemDeuterioEvoluir" value="//li[@id='button9']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="EsconderijoMetalDetails" value="//li[@id='button10']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="EsconderijoMetalEvoluir" value="//li[@id='button10']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="EsconderijoCristalDetails" value="//li[@id='button11']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="EsconderijoCristalEvoluir" value="//li[@id='button11']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[32m      <button name="EsconderijoDeuterioDetails" value="//li[@id='button12']/div/div/a[@id='details']" searchType="_path" />[m
+[32m+[m[32m      <button name="EsconderijoDeuterioEvoluir" value="//li[@id='button12']/div/div/a[contains(@class,'fastBuild')]" searchType="_path" />[m
+[32m+[m[41m      [m
+[32m+[m[32m      <!--Instalações-->[m
+[32m+[m[32m      <button name="FabricaRobotsDetails" value="//li[@id='button0']/div/div/a[@id='details14']" searchType="_path" />[m
+[32m+[m[32m      <button name="FabricaRobotsEvoluir" value="" searchType="_path" />[m
+[32m+[m[32m      <button name="HangarDetails" value="//li[@id='button1']/div/div/a[@id='details21']" searchType="_path" />[m
+[32m+[m[32m      <button name="HangarEvoluir" value="" searchType="_path" />[m
+[32m+[m[32m      <button name="LabratorioPesquisasDetails" value="//li[@id='button2']/div/div/a[@id='details31']" searchType="_path" />[m
+[32m+[m[32m      <button name="LabratorioPesquisasEvoluir" value="" searchType="_path" />[m
+[32m+[m[32m      <button name="DepositoAliancaDetails" value="//li[@id='button3']/div/div/a[@id='details34']" searchType="_path" />[m
+[32m+[m[32m      <button name="DepositoAliancaEvoluir" value="" searchType="_path" />[m
+[32m+[m[32m      <button name="SiloMisseisDetails" value="//li[@id='button4']/div/div/a[@id='details44']" searchType="_path" />[m
+[32m+[m[32m      <button name="SiloMisseisEvoluir" value="" searchType="_path" />[m
+[32m+[m[32m      <button name="FabricaNanitesDetails" value="//li[@id='button5']/div/div/a[@id='details15']" searchType="_path" />[m
+[32m+[m[32m      <button name="FabricaNanitesEvoluir" value="" searchType="_path" />[m
+[32m+[m[32m      <button name="TerraFormadorDetails" value="//li[@id='button6']/div/div/a[@id='details33']" searchType="_path" />[m
+[32m+[m[32m      <button name="TerraFormadorEvoluir" value="" searchType="_path" />[m
+[32m+[m[41m      [m
+[32m+[m[41m      [m
+[32m+[m[32m    </buttons>[m
+[32m+[m[32m  </customConfig>[m
+[32m+[m
+ </configuration>[m
+\ No newline at end of file[m
+[1mdiff --git a/TratamentoExcecao/ExtensionsExption.cs b/TratamentoExcecao/ExtensionsExption.cs[m
+[1mindex 081f8ef..3b960e8 100644[m
+[1m--- a/TratamentoExcecao/ExtensionsExption.cs[m
+[1m+++ b/TratamentoExcecao/ExtensionsExption.cs[m
+[36m@@ -7,7 +7,7 @@[m [mnamespace TratamentoExcecao[m
+ {[m
+     public static class ExtensionsExption[m
+     {[m
+[31m-        public void TrataException(this Exception ex, string classUtilizada, string Metodo)[m
+[32m+[m[32m        public static void TrataException(this Exception ex, string classUtilizada, string Metodo)[m
+         {[m
+ [m
+         }[m

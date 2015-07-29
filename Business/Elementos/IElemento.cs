@@ -8,24 +8,24 @@ namespace Business.Elementos
 {
     public abstract class IElemento
     {
-        public ElementoPesquisaEnum tipoPesquisa { get; private set; }
-        public string id { get; private set; }
+        Identificador identificador;
 
-        public IElemento(string Id,ElementoPesquisaEnum TipoPesquisa)
+        public IElemento(Identificador Id)
         {
-            tipoPesquisa = TipoPesquisa;
-            id = Id;
+            identificador = Id;
         }
         public abstract void Funcao(IWebDriver pagina);
 
-        public virtual IWebElement GetElemento(IWebDriver pagina)
+        public IWebElement GetElemento(IWebDriver pagina)
         {
             try
             {
-                switch (tipoPesquisa)
+                switch (identificador.tipoPesquisa)
                 {
                     case ElementoPesquisaEnum._id:
-                        return pagina.FindElement(By.Id(id));
+                        return pagina.FindElement(By.Id(identificador.id));
+                    case ElementoPesquisaEnum._path:
+                        return pagina.FindElement(By.XPath(identificador.id));
                 }
                 return null;
             }

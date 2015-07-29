@@ -7,35 +7,28 @@ namespace DTO
 {
     public class Utilizador
     {
-        private string _userName;
-        private string _password;
-        private string _universo;
         public string userName
         {
-            get
-            {
-                return _userName;
-            }
+            get;
+            private set;
         }
         public string password
         {
-            get
-            {
-                return _password;
-            }
+            get;
+            private set;
         }
         public string universo
         {
-            get
-            {
-                return _universo;
-            }
+            get;
+            private set;
         }
-        public Utilizador(string Username, string Password, string Universo)
+        public string email { get; set; }
+        public Utilizador(string Username, string Password, string Universo, string Email)
         {
-            _userName = Username;
-            _password = Password;
-            _universo = Universo;
+            userName = Username;
+            password = Password;
+            universo = Universo;
+            email = Email;
         }
     }
 }

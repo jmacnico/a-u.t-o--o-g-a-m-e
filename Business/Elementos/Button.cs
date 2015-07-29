@@ -11,8 +11,8 @@ namespace Business.Elementos
     public class Button : IElemento
     {
 
-        public Button(string Id, ElementoPesquisaEnum elemTipoPesquisa)
-            : base(Id,elemTipoPesquisa)
+        public Button(Identificador Id)
+            : base(Id)
         {
         }  
         public override void Funcao(IWebDriver pagina)

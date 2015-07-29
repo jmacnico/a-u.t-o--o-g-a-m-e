@@ -13,8 +13,8 @@ namespace Business.Elementos
         
         public string text { get; set; }
 
-        public Textbox(string Id, ElementoPesquisaEnum elemTipoPesquisa, string Text = "")
-            : base(Id,elemTipoPesquisa)
+        public Textbox(Identificador Id, string Text = "")
+            : base(Id)
         {
             text = Text;
         }    

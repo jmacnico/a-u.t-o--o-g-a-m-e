@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using Business.Configs;
+using Business.Elementos;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +10,14 @@ namespace Business
     public abstract class IPagina
     {
 
-        Elementos.BtnMenu btnIdentificador;
+        Button btnIdentificador;
 
-        public IPagina(Elementos.BtnMenu Identificador)
+        public IPagina(string KeyCustomConfig)
         {
-            btnIdentificador = Identificador;
+            if (!string.IsNullOrEmpty(KeyCustomConfig))
+                btnIdentificador = new Button(CustomConfig.Settings.Buttons[KeyCustomConfig].GetIdentificador());
+            
+            
         }
         public abstract bool ValidateLogin(IWebDriver pagina);
 

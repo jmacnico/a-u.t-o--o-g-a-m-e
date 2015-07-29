@@ -9,8 +9,8 @@ namespace Business.Elementos
     public class Listbox : IElemento
     {
         public string selectValue { get; private set; }
-        public Listbox(string Id, ElementoPesquisaEnum elemTipoPesquisa, string SelectValue)
-            : base(Id,elemTipoPesquisa)
+        public Listbox(Identificador Id, string SelectValue)
+            : base(Id)
         {
             selectValue = SelectValue;
         }  

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Elementos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Business.Paginas
     class RecursosSettings : IPagina
     {
         public RecursosSettings()
-            : base(new Elementos.BtnMenu("Recursos", Elementos.ElementoPesquisaEnum._id,""))
+            : base("MenuRecursosSettings")
         {
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Elementos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Business.Paginas
     class VistaGeral: IPagina
     {
         public VistaGeral()
-            : base(new Elementos.BtnMenu("Vista Geral", Elementos.ElementoPesquisaEnum._id, "Vista Geral"))
+            : base("MenuVistaGeral")
         {
 
         }
