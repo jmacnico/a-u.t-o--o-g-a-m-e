@@ -39,10 +39,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WebDriver">
-      <HintPath>..\..\net40\WebDriver.dll</HintPath>
+      <HintPath>..\..\..\Desenvolvimento\net40\WebDriver.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebDriver.Support">
-      <HintPath>..\..\net40\WebDriver.Support.dll</HintPath>
+      <HintPath>..\..\..\Desenvolvimento\net40\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +55,7 @@
     <Compile Include="Elementos\Button.cs" />
     <Compile Include="Elementos\Combobox.cs" />
     <Compile Include="Elementos\Enums.cs" />
+    <Compile Include="Elementos\ExtensionsElementos.cs" />
     <Compile Include="Elementos\Identificador.cs" />
     <Compile Include="Elementos\IElemento.cs" />
     <Compile Include="Elementos\Listbox.cs" />

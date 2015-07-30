@@ -30,48 +30,6 @@ namespace Business.Menu
             defesas = new MenuPaginas(new Defesas(), null);
             galaxia = new MenuPaginas(new Galaxia(), null);
         }
-
-
-        public void EntrarRecursos(IWebDriver pagina, bool OpenSettings = false)
-        {
-            if (OpenSettings)
-                recursos.settings.Entrar(pagina);
-            else
-                recursos.principal.Entrar(pagina);
-        }
-        public void EntrarVistaGeral(IWebDriver pagina)
-        {
-            vistaGeral.principal.Entrar(pagina);
-        }
-        public void EntrarInstalacoes(IWebDriver pagina)
-        {
-            instalacoes.principal.Entrar(pagina);
-        }
-        public void EntrarPesquisas(IWebDriver pagina, bool OpenSettings = false)
-        {
-            if (OpenSettings)
-                pesquisas.settings.Entrar(pagina);
-            else
-                pesquisas.principal.Entrar(pagina);
-        }
-        public void EntrarHangar(IWebDriver pagina)
-        {
-            hangar.principal.Entrar(pagina);
-        }
-        public void EntrarDefesas(IWebDriver pagina)
-        {
-            defesas.principal.Entrar(pagina);
-        }
-        public void EntrarGalaxia(IWebDriver pagina)
-        {
-            galaxia.principal.Entrar(pagina);
-        }
-        public void EntrarFrota(IWebDriver pagina, bool OpenSettings = false)
-        {
-            if (OpenSettings)
-                frota.settings.Entrar(pagina);
-            else
-                frota.principal.Entrar(pagina);
-        }
+        
     }
 }
